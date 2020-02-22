@@ -1,0 +1,65 @@
+<!--pages/book-detail/index.wxml-->
+<wxs src="../../utils/filter.wxs" module="utils"></wxs>
+
+<view class="container">
+  <view class="header-box">
+    <image src="{{book.image}}" />
+    <text class="title">{{book.title}}</text>
+    <text class="author">{{book.author}}</text>
+    <view class="look_all_content">查看全文</view>
+  </view>
+  <view class="sub-box">
+    <text class="headLine">短评</text>
+    <view class="comments">
+      <block wx:for="{{utils.limit(comments, 6)}}" wx:key="content">
+        <w-tag commentText="{{item.content}}">
+          <text class="num" slot="after">{{'+' + item.nums}}</text>
+        </w-tag>
+      </block>
+    </view>
+  </view>
+  <view class="sub-box">
+    <text class="headLine">内容简介</text>
+    <text class="introduction">
+      {{utils.format(book.summary)}}
+    </text>
+  </view>
+  <view class="sub-box">
+    <text class="headLine">书籍信息</text>
+    <view class="bookInfo">
+      <view class="infoKey">
+        <view>出版社：</view>
+        <view>出版年：</view>
+        <view>页数：</view>
+        <view>定价：</view>
+        <view>装帧：</view>        
+      </view>
+      <view class="infoValue">
+        <view>{{book.publisher}}</view>
+        <view>{{book.pubdate}}</view>
+        <view>{{book.pages}}</view>
+        <view>{{book.price}}</view>
+        <view>{{book.binding}}</view>        
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="post-container" wx:if="{{!showShortComment}}">
+  <view bind:tap="onFakePost" class="post-fake">
+    <text>输入短评</text>
+  </view>
+</view>
+
+<view class="posting-container" wx:else>
+  <view class="post-header">
+    <text>仅点击标签+1</text>
+    <text bind:tap="cancel">取消</text>
+  </view>
+  <view class="comment-container"></view>
+  <input type="text" class="post-input" placeholder="短评最多12个字"></input>
+</view>
+
+<c-cover wx:if="{{showShortComment}}"></c-cover>
+
+

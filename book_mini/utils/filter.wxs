@@ -1,0 +1,35 @@
+/* 
+  这里不能用const，注意wxs与JavaScript不是等同一种东西，
+  只是语法相似，大多数语法相同，只是稍微有一些差别，但两者不等同
+*/ 
+module.exports.format = function(text) {
+    if(!text) {
+      return 
+    }
+    // 我这里没结合后台，所以这个函数暂时没有作用
+    var reg = getRegExp('\\\\n', 'g');
+    var formatText = text.replace(reg, '\n&nbsp;&nbsp;&nbsp;');
+    console.log(formatText)
+    return formatText;
+  }
+  
+  /***
+   * 这里遇到一个问题：
+   * 发现format函数执行了两次？
+   * 
+   * 初始化页面执行一次
+   * 
+   * 更新数据执行一次
+   *  
+   * 试了一下，无论如何都会执行两次，这个问题待解决
+   */
+  
+   module.exports.limit = function(array, length) {
+    /**
+     * 注意这里是把所有的数据都返回给前端，在前端从所有的数据去截取，
+     * 个人认为不太好，建议从后端去处理
+     * 
+     *  */ 
+     return array.slice(array, length);
+   }
+  

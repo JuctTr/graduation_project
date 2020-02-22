@@ -1,0 +1,2 @@
+<!--components/cover/cover.wxml-->
+<view class="cover-container"></view>

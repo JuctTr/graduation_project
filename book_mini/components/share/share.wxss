@@ -1,0 +1,14 @@
+/* components/share/share.wxss */
+.container {
+    width: 60rpx;
+    height: 60rpx;
+}
+.share_btn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: url('https://yicong.com/index/images/share.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

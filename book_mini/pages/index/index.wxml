@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<import src="../../components/frontCard/frontCard.wxml" />
+<import src="../../components/backCard/backCard.wxml" />
+
+<view class="container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" previous-margin="60rpx" next-margin="60rpx"
+    bindchange="bannerChange" bindanimationfinish="finishAnim">
+        <swiper-item class="item" wx:for="{{bannerData}}" wx:key="index">
+            <view class="swiper_item">
+                <!-- 卡牌 -->
+                <view class="flip_box" animation="{{everyCard[item.id - 1].animationData}}">
+                <!-- <view class="flip_box" animation="{{item.ifFilpCard ? animationData : '{}'}}"> -->
+                    <view class="front flip_item">
+                        <template is="front_book" data="{{...item}}"></template>
+                        <template is="front_music" data="{{...item}}"></template>
+                        <template is="front_movie" data="{{...item}}"></template>
+                    </view>
+                    <view class="back flip_item">
+                        <template is="back_book" data="{{...item}}"></template>
+                        <template is="back_music" data="{{...item}}"></template>
+                        <template is="back_movie" data="{{...item}}"></template>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

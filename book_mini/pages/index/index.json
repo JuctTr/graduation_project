@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "c-like": "../../components/like/like",
+    "c-share": "../../components/share/share",
+    "c-date-issue": "../../components/date-issue/date-issue"
+  }
+}

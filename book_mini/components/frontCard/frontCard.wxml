@@ -1,0 +1,25 @@
+<template name="front_book">
+    <view class="card front_book"  wx:if="{{cardType == 100}}">
+        <image class="card_bg" catch:tap="onFlipCard" data-id="{{id}}" src="{{frontData.img}}" />
+        <c-like favNums="{{frontData.fav_nums}}"></c-like>
+        <c-share></c-share>
+        <c-date-issue pubdate="{{frontData.pubdate}}"></c-date-issue>
+        <view class="movie_title"></view>
+    </view>
+</template>
+<template name="front_music">
+    <view class="card front_book"
+        catch:tap="onFlipCard"
+        wx:if="{{cardType == 200}}"
+        data-id="{{id}}">
+        <image class="card_bg" src="{{frontData.img}}" />
+    </view>
+</template>
+<template name="front_movie">
+    <view class="card front_book"
+        catch:tap="onFlipCard"
+        wx:if="{{cardType == 300}}"
+        data-id="{{id}}">
+        <image class="card_bg" src="{{frontData.img}}" />
+    </view>
+</template>

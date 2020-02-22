@@ -1,0 +1,154 @@
+/* pages/book-detail/index.wxss */
+.container {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-bottom: 88rpx;
+}
+/* 头部 */
+.container .header-box {
+  height: 500rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-box image {
+  width: 200rpx;
+  height: 300rpx;
+}
+.header-box .title {
+  margin-top: 20rpx;
+  font-weight: bolder;
+}
+.header-box .author {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #bbbbbb;
+}
+.container .look_all_content {
+  width: 52rpx;
+  padding: 10rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 50rpx;
+  background-color: #f5f5f5;
+  position: absolute;
+  top: 20rpx; 
+  right: 20rpx;
+}
+/* 短评 */
+.sub-box {
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sub-box .headLine {
+  font-size: 28rpx;
+  font-weight: bolder;
+  padding: 20rpx 0;
+}
+.comments {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 40rpx 20rpx 40rpx;
+}
+.comments w-tag {
+  margin: 10rpx;
+}
+.comments .num {
+  /* color: #bbbbbb; */
+  color: red;
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  vertical-align: bottom;
+}
+/* 内容简介 */
+.introduction {
+  color: #858585;
+  line-height: 50rpx;
+
+  /* 发现text标签，应用text-indent属性无用，待解决*/
+
+  text-indent: 300rpx;
+  padding: 0 40rpx 20rpx 40rpx;
+}
+/* 书籍信息 */
+.bookInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 40rpx 20rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+.bookInfo .infoKey {
+  color: #adadad;
+}
+.bookInfo .infoValue {
+  color: #666666;
+}
+
+.post-container {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0 0px 5px -4px #000000;
+  position: fixed;
+  bottom: 0;  
+}
+.post-fake {
+  font-size: 24rpx;
+  width: 408rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+.post-fake text {
+  margin-left: 32rpx;
+}
+
+.posting-container {
+  width: 100%;
+  height: 328rpx;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+.posting-container .post-header {
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+}
+.posting-container .comment-container {
+  margin: 40rpx 0;
+}
+.posting-container .post-input {
+  width: 100%;
+  height: 68rpx;
+  font-size: 24rpx;
+  line-height: 68rpx;
+  background-color: #f5f5f5;
+  color: #999999;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 38rpx;
+  border-radius: 50rpx;
+}

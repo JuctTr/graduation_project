@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/books/books"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#edeef0",
+    "navigationBarTitleText": "阿聪",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "流行",
+        "iconPath": "images/tabBarIcon/classic.png",
+        "selectedIconPath": "images/tabBarIcon/classic@highlight.png"
+      },
+      {
+        "pagePath": "pages/books/books",
+        "text": "书单",
+        "iconPath": "images/tabBarIcon/book.png",
+        "selectedIconPath": "images/tabBarIcon/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "喜欢",
+        "iconPath": "images/tabBarIcon/my.png",
+        "selectedIconPath": "images/tabBarIcon/my@highlight.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,21 @@
+<template name="back_book">
+    <view class="card back_book"
+        catch:tap="onFlipCard"
+        wx:if="{{cardType == 100}}"
+        data-id="{{id}}">
+        我是书籍的前面（背面）
+        <image src="{{backData.img}}" />
+    </view>
+</template>
+<template name="back_music">
+    <view class="card back_book" data-id="{{id}}" catch:tap="onFlipCard" wx:if="{{cardType == 200}}">
+        我是音乐的前面（背面）
+        <image src="{{backData.img}}" />
+    </view>
+</template>
+<template name="back_movie">
+    <view class="card back_book" data-id="{{id}}" catch:tap="onFlipCard" wx:if="{{cardType == 300}}">
+        我是电影的前面（背面）
+        <image src="{{backData.img}}" />
+    </view>
+</template>

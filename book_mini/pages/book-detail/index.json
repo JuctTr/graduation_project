@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-tag": "../../components/tag/tag",
+    "c-cover": "../../components/cover/cover"
+  }
+}

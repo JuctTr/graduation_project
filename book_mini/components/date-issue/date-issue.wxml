@@ -1,0 +1,10 @@
+<!--components/dateAndIssue/date-issue.wxml-->
+<view class="container">
+    <view class="top_date">
+        <text class="year"></text>
+        <text class="mouth"></text>
+    </view>
+    <view class="bottom_issue">
+        <text class="issue">No.</text>
+    </view>
+</view>

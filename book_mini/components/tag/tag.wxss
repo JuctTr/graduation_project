@@ -1,0 +1,16 @@
+/* components/tag/tag.wxss */
+.container {
+    font-size: 24rpx;
+    color: #666666;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    display: inline-flex;
+    flex-direction: row;
+    padding: 10rpx 20rpx;
+}
+.container .num {
+    /* color: #bbbbbb; */
+    color: red;
+    margin-left: 10rpx;
+    font-size: 20rpx;
+}

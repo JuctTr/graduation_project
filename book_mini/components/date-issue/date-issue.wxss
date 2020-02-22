@@ -1,0 +1,4 @@
+/* components/dateAndIssue/date-issue.wxss */
+.container {
+    color: #ffffff;
+}
