@@ -1,7 +1,14 @@
-class HTTPException extends Error {
+/**
+ * 1、已知错误
+ *  比如参数错误，参数类型不对等
+ * 2、未知错误
+ *  数据库密码错误等
+ */
+class HttpException extends Error {
     constructor(msg = '服务器异常', errorCode = 10000, code = 400) {
         super()
         this.msg = msg;
+        // errorCode是开发者自己定义的具体错误
         this.errorCode = errorCode;
         this.code = code;
     }
@@ -18,7 +25,7 @@ class Success extends HttpException {
 }
 
 // 参数错误
-class ParameterException extends HTTPException {
+class ParameterException extends HttpException {
     constructor(msg, errorCode) {
         super();
         this.code = 400
