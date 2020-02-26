@@ -1,3 +1,6 @@
+/**
+ * 全局异常处理模块
+ */
 const { HttpException } = require('../utils/http-exception');
 
 const catchError = async (ctx, next) => {

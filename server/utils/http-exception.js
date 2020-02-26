@@ -14,7 +14,7 @@ class HttpException extends Error {
     }
 }
 
-// 成功
+// 一般200表示查询成功，提交成功应该用201
 class Success extends HttpException {
     constructor(msg, errorCode){
         super()

@@ -3,13 +3,13 @@ const requireDirectory = require('require-directory');
 const Router = require('koa-router');
 // 中间件
 const bodyParser = require('koa-bodyparser');
-// 处理异常
-const catchError = require('./utils/exception');
+
+const catchError = require('./utils/exception'); // 全局异常处理
 
 const app = new Koa();
 
 app.use(bodyParser());
-app.use(catchError);
+app.use(catchError); // 全局异常处理
 
 /**
  * 加载全局配置项
