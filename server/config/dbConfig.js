@@ -1,3 +1,7 @@
+/**
+ * @description 定义存入数据库的数据形式、个性化配置
+ * @returns {Object} 返回一个个性化对象用于Model层操作数据库
+ */
 const Sequelize = require('sequelize');
 
 const {
@@ -8,7 +12,7 @@ const {
     password
 } = require('./config').database;
 
-let sequelize = new Sequelize(dbName, user, password, {
+const sequelize = new Sequelize(dbName, user, password, {
     dialect: 'mysql',
     host,
     port,

@@ -1,0 +1,17 @@
+{
+  "name": "book_mini",
+  "version": "1.0.0",
+  "description": "毕业设计作品",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grauduation_project"
+  ],
+  "author": "wangyicong",
+  "license": "ISC",
+  "dependencies": {
+    "lin-ui": "^0.7.3"
+  }
+}

@@ -1,6 +1,12 @@
+/**
+ * Model层
+ * @description 用户注册操作数据库文件
+ * @returns {Object} 用户模型
+ */
+
 const  { sequelize }  = require('../config/dbConfig');
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs'); // 密码加密
 
 const {
     Sequelize,
@@ -10,12 +16,15 @@ const {
 class User extends Model {
 
 }
-
+/**
+ * 问题：
+ * 1、并发问题：假如1000个用户同时注册，id号可能会重复
+ */
 User.init({
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,   // 主键，唯一的
-        autoIncrement: true
+        autoIncrement: true // 自动增加
     },
     nickname: Sequelize.STRING,
     password: {

@@ -1,5 +1,5 @@
 /**
- * 全局异常处理模块
+ * @description 全局异常处理模块
  */
 const { HttpException } = require('../utils/http-exception');
 

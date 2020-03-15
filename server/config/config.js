@@ -1,3 +1,6 @@
+/**
+ * @description 环境、数据库账号密码、端口等配置
+ */
 module.exports = {
     // prod
     environment:'dev',

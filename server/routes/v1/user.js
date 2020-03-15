@@ -2,14 +2,12 @@ const Router = require('koa-router');
 const router = new Router({
     prefix: '/v1/user' // 前缀功能，在每一个请求路径前面加
 });
-// 密码加密
-// const bcrypt = require('bcryptjs');
 
-// 注册校检
-const { RegisterValidator } = require('../../validators/validators');
+// const bcrypt = require('bcryptjs'); // 密码加密
 
-// 用户model层，一般用来操作数据库的
-const { User } = require('../../models/userModel');
+const { RegisterValidator } = require('../../validators/validators'); // 注册校检
+
+const { User } = require('../../models/userModel'); // 用户model层，一般用来操作数据库的
 
 router.post('/register', async (ctx) => {
     const v = await new RegisterValidator().validate(ctx);
