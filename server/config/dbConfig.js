@@ -28,9 +28,17 @@ const sequelize = new Sequelize(dbName, user, password, {
     }
 })
 
+sequelize.authenticate()
+  .then(() => {
+    console.log('数据库已经连接成功了');
+  })
+  .catch(err => {
+    console.error('数据库连接失败：', err);
+  });
+
 // 只有这个方法，models层的代码才会往数据库中加入东西
 sequelize.sync({
-    force: true // 这个为true的时候，重新执行时，会删除整一个数据表，重新创建一个，所以这个不要随便加
+    force: false // 这个为true的时候，重新执行时，会删除整一个数据表，重新创建一个，所以这个不要随便加
 });
 
 

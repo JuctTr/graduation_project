@@ -4,6 +4,7 @@
  */
 const { Rule, LinValidator } = require('../utils/lin-validator');
 const { User } = require('../models/userModel');
+const { LoginType } = require('../validators/enumLoginType');
 /**
  * 参数规范
  */
@@ -62,11 +63,11 @@ class RegisterValidator extends LinValidator {
     }
 }
 
+/**
+ * @description 令牌颁发
+ */
 class TokenValidator extends LinValidator {
     constructor() {
-        //隐藏的错误
-        // Java
-        // JS Python 
         super()
         this.account = [
             new Rule('isLength', '不符合账号规则', {
@@ -75,8 +76,13 @@ class TokenValidator extends LinValidator {
             })
         ]
         this.secret = [
-            //    validator.js
-            new Rule('isOptional'),
+            /**
+             *  登录多元化：
+             * 1、账号和密码登录
+             * 2、小程序不需要密码，应该你在登录微信时，微信已经帮你验证是一个正常的用户
+             * 3、手机号登录
+             */
+            new Rule('isOptional'), // 可选值（这个secret可以传也可以不传），这个是LinValidator自定义的函数，不是validator.js的
             new Rule('isLength', '至少6个字符', {
                 min: 6,
                 max: 128

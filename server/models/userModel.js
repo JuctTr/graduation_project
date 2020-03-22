@@ -4,7 +4,7 @@
  * @returns {Object} 用户模型
  */
 
-const  { sequelize }  = require('../config/dbConfig');
+const { sequelize }  = require('../config/dbConfig');
 
 const bcrypt = require('bcryptjs'); // 密码加密
 
@@ -14,7 +14,29 @@ const {
 } = require('sequelize');
 
 class User extends Model {
-
+    /**
+     * @param {String} email 用户邮箱
+     * @param {String} plainPassword 用户的普通密码（未加密）
+     * @description 验证获取token(令牌)的邮箱密码
+     */
+    static async verifyEmailPassword(email, plainPassword) {
+        const user = await User.findOne({
+            where: {
+                email
+            }
+        })
+        // 如果数据库中查询不到这个账号
+        if (!user) {
+            throw new global.errors.AuthFailed('账号不存在')
+        }
+        // 查询得到账号，则需要验证密码的准确性。
+        // 因为用户输入的密码是没有加过密的，而数据库中的密码是加过密的，所以需要借助bcryptjs
+        const isCorrect = bcrypt.compareSync(plainPassword, user.password);
+        if(!isCorrect){
+            throw new global.errors.AuthFailed('密码不正确')
+        }
+        return user
+    }
 }
 /**
  * 问题：

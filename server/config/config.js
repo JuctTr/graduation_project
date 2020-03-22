@@ -12,8 +12,8 @@ module.exports = {
         password: 'root',
     },
     security:{
-        secretKey: "abcdefg",
-        expiresIn: 60*60*24*30
+        secretKey: "abcdefg", // 这个私有的密钥，在生成环境中是非常的复杂的和具有一定的规律的
+        expiredTime: 60*60*24*30 // 令牌的过期时间
     },
     wx:{
         appId: '',

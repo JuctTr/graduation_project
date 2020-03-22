@@ -1,8 +1,32 @@
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+
+/**
+ * 生成Token
+ * @param {String} uid 用户id
+ * @param {*} scope 管理用户权限
+ */
+function generateToken (uid, scope){
+    const secretKey = global.config.security.secretKey;
+    const expiredTime = global.config.security.expiredTime;
+    /**
+     * @param {Object} 用户信息
+     * @param {String} secret 私有的密钥
+     * @param options 可选的参数值
+     * @description 用来生成令牌的函数
+     */
+    const token = jwt.sign({ 
+        uid,
+        scope
+    },secretKey,{
+        expiredTime
+    })
+    return token;
+}
+
 /***
  * 
  */
-const findMembers = function (instance, {
+function findMembers (instance, {
     prefix,
     specifiedType,
     filter
@@ -39,35 +63,8 @@ const findMembers = function (instance, {
     return _find(instance)
 }
 
-const generateToken = function(uid, scope){
-    const secretKey = global.config.security.secretKey
-    const expiresIn = global.config.security.expiresIn
-    const token = jwt.sign({
-        uid,
-        scope
-    },secretKey,{
-        expiresIn
-    })
-    return token
-}
-
-
 
 module.exports = {
     findMembers,
     generateToken,
 }
-
-
-
-// const generateToken = function (uid, scope) {
-//     const secretKey = global.config.security.secretKey
-//     const expiresIn = global.config.security.expiresIn
-//     const token = jwt.sign({
-//         uid,
-//         scope
-//     }, secretKey, {
-//         expiresIn: expiresIn
-//     })
-//     return token
-// }
