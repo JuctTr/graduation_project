@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 /**
- * 生成Token
+ * 生成Token的函数
  * @param {String} uid 用户id
  * @param {*} scope 管理用户权限
  */
@@ -18,7 +18,7 @@ function generateToken (uid, scope){
         uid,
         scope
     },secretKey,{
-        expiredTime
+        expiresIn: expiredTime
     })
     return token;
 }

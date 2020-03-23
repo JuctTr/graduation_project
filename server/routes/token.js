@@ -12,17 +12,17 @@ router.post('/token', async (ctx) => {
     
     // 针对登录类型的处理，需要返回什么给前端
     switch (v.get('body.type')) {
-        case LoginType.USER_EMAIL:
+        case LoginType.USER_EMAIL: // 普通邮箱的登录
 
             const account = v.get('body.account');
             const secret = v.get('body.secret');
             userToken = await emailLogin(account, secret);
 
             break;
-        case LoginType.USER_MINI_PROGRAM:
+        case LoginType.USER_MINI_PROGRAM: // 小程序登录
 
             break;
-        case LoginType.USER_MOBILE:
+        case LoginType.USER_MOBILE: // 手机号登录
 
             break;
         default:
