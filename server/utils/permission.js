@@ -1,23 +1,22 @@
 /**
- * @description 验证前端用户传过来的token是否有效的中间件
+ * @description 1、管理用户权限分级
+ *              2、验证前端用户传过来的token是否有效的中间件
  */
+
 const basicAuth = require('basic-auth');
 const jwt = require('jsonwebtoken');
 
-class Auth {
+class Permission {
     constructor(level) {
-
         /*
             1、用户权限分级
             2、给每一个请求（api）都设置一个权限级别
             3、如果前台过来的请求的权限级别 >= api所在的级别，说明可以访问
         */ 
-        
-
-        this.level = level || 1 // api的权限级别，默认为 1
-        Auth.USER = 8 // 普通用户
-        Auth.ADMIN = 16 // 管理员
-        Auth.SUPER_ADMIN = 32
+        this.level = level || 1 // 用户传入的api的权限级别，默认为 1
+        Permission.USER = 8 // 普通用户
+        Permission.ADMIN = 16 // 管理员
+        Permission.SUPER_ADMIN = 32 // 超级管理员（根据项目需求添加）
     }
 
     get isCorrectToken () {
@@ -66,18 +65,18 @@ class Auth {
         }
     }
 
-    static verifyToken (token) {
-        try{
-            jwt.verify(token, global.config.security.secretKey);
-            return true;
-        }
-        catch (error){
-            return false;
-        }
+    // static verifyToken (token) {
+    //     try{
+    //         jwt.verify(token, global.config.security.secretKey);
+    //         return true;
+    //     }
+    //     catch (error){
+    //         return false;
+    //     }
 
-    }
+    // }
 }
 
 module.exports = {
-    Auth
+    Permission
 }

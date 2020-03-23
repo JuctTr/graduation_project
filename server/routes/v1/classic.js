@@ -1,7 +1,7 @@
 const router = require('../index');
-const { Auth } = require('../../utils/verify-token');
+const { Permission } = require('../../utils/permission');
 
-router.get('/v1/classic/lastest', new Auth(9).isCorrectToken, (ctx, next) => {
+router.get('/v1/classic/lastest', new Permission().isCorrectToken, (ctx, next) => {
     ctx.body = ctx.auth;
 
 });

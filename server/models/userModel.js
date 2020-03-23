@@ -27,15 +27,15 @@ class User extends Model {
         })
         // 如果数据库中查询不到这个账号
         if (!user) {
-            throw new global.errors.AuthFailed('账号不存在')
+            throw new global.errors.AuthFailed('账号不存在');
         }
         // 查询得到账号，则需要验证密码的准确性。
         // 因为用户输入的密码是没有加过密的，而数据库中的密码是加过密的，所以需要借助bcryptjs
         const isCorrect = bcrypt.compareSync(plainPassword, user.password);
         if(!isCorrect){
-            throw new global.errors.AuthFailed('密码不正确')
+            throw new global.errors.AuthFailed('密码不正确');
         }
-        return user
+        return user;
     }
 }
 /**

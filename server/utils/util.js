@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 /**
  * 生成Token的函数
  * @param {String} uid 用户id
- * @param {*} scope 管理用户权限
+ * @param {*} scope 用户权限分级
  */
 function generateToken (uid, scope){
     const secretKey = global.config.security.secretKey;
@@ -23,7 +23,7 @@ function generateToken (uid, scope){
     return token;
 }
 
-/***
+/**
  * 
  */
 function findMembers (instance, {

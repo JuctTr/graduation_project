@@ -1,8 +1,10 @@
 const Router = require('koa-router');
 const router = new Router();
+
 const { TokenValidator } = require('../validators/validators');
 const { LoginType } = require('../validators/enumLoginType');
 const { User } = require('../models/userModel');
+const { WXManager } = require('../models/wxModel');
 const { generateToken } = require('../utils/util');
 
 
@@ -20,13 +22,16 @@ router.post('/token', async (ctx) => {
 
             break;
         case LoginType.USER_MINI_PROGRAM: // 小程序登录
+            
+            const code = v.get('body.account');
+            userToken = WXManager.codeToToken(code);
 
             break;
         case LoginType.USER_MOBILE: // 手机号登录
 
             break;
         default:
-            throw new global.errors.ParameterException('没有相应的处理函数')
+            throw new global.errors.ParameterException('没有相应的处理函数');
 
 
     }
@@ -39,8 +44,11 @@ router.post('/token', async (ctx) => {
 // 邮箱和密码登录
 async function emailLogin(account, secret) {
     const user = await User.verifyEmailPassword(account, secret);
-    return generateToken(user.id, 2);
+    return generateToken(user.id);
 }
 
+// 微信登录，单独抽取一个wxModel.js文件出来
+
+// 手机号登录（扩展）
 
 module.exports = router;
