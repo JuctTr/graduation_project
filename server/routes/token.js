@@ -24,7 +24,7 @@ router.post('/token', async (ctx) => {
         case LoginType.USER_MINI_PROGRAM: // 小程序登录
             
             const code = v.get('body.account');
-            userToken = WXManager.codeToToken(code);
+            userToken = await WXManager.codeToToken(code);
 
             break;
         case LoginType.USER_MOBILE: // 手机号登录

@@ -2,6 +2,7 @@ const util = require('util'); // node.js本身提供的工具库
 const { User } = require('./userModel');
 const { generateToken } = require('../utils/util');
 const { Permission } = require('../utils/permission');
+const axios = require('axios');
 
 /**
  * @description 通过微信官方提供的登录能力方便地获取微信提供的用户身份标识openid以及unionid
@@ -21,10 +22,8 @@ class WXManager {
         } = global.config.wx;
 
         const url = util.format(loginUrl, appId, appSecret, code);
-        console.log(url, '请求的登录连接');
 
         const result = await axios.get(url); // 发送一个HTTP请求，获取相关用户标识
-        console.log(result, '返回的openid以及unionid');
 
         if (result.status !== 200) {
             throw new global.errors.AuthFailed('openid获取失败');
@@ -46,10 +45,10 @@ class WXManager {
         // 第一次访问服务端，openid 是没有的
         // 登录状态失效了，再次访问，需要查一下数据库，如果有了，就没必要再存入数据库了
 
-        let user = await getUserByOpenid(result.data.openid);
+        let user = await this.getUserByOpenid(result.data.openid);
         if(!user){
             // 如果查不到用户的openid，则写入数据库
-            user = await registerByOpenid(result.data.openid);
+            user = await this.registerByOpenid(result.data.openid);
         }
         
         // 到了这里，说明用户的openid获取成功了，就生成一个token返回
