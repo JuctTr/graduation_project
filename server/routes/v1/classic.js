@@ -1,10 +1,53 @@
-const router = require('../index');
-const { Permission } = require('../../utils/permission');
+const Router = require('koa-router');
+const router = new Router({
+    prefix: '/v1/classic'
+});
 
-router.get('/v1/classic/lastest', new Permission().isCorrectToken, (ctx, next) => {
+const { Permission } = require('../../utils/permission');
+const { Flow } = require('../../models/FlowModel');
+const {
+    Movie,
+    // Book,
+    // Music
+} = require('../../models/classicModel');
+
+/**
+ * 请求最新一期的数据
+ */
+router.get('/lastest', new Permission().isCorrectToken, async (ctx, next) => {
+    // 对数据库中的数据进行排序，把期刊号最大的一期，返回给前端
+    const lastestData = await Flow.findOne({
+        order: [
+            ['index', 'DESC']
+        ]
+    });
+    ctx.body = lastestData;
+
+
+});
+
+/**
+ * 请求下一期的数据
+ */
+router.get('/:index/next', new Permission().isCorrectToken, (ctx, next) => {
     ctx.body = ctx.auth;
 
 });
+
+/**
+ * 请求上一期的数据
+ */
+router.get('/:index/previous', new Permission().isCorrectToken, (ctx, next) => {
+    ctx.body = ctx.auth;
+
+});
+
+// router.get('/lastest', new Permission().isCorrectToken, (ctx, next) => {
+//     ctx.body = ctx.auth;
+
+// });
+
+
 
 
 /*

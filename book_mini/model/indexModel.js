@@ -1,9 +1,9 @@
-import { HTTP } from '../utils/request';
+import { HTTP } from '../common/request';
 
 class IndexModel extends HTTP {
     getLatestIssue() {
         return this.request({
-            url: 'index/latest'
+            url: 'v1/classic/latest'
         })
     }
 }

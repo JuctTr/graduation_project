@@ -1,4 +1,4 @@
-import { HTTP } from '../utils/request';
+import { HTTP } from '../common/request';
 
 class BooksModel extends HTTP {
   // 获取热门书籍

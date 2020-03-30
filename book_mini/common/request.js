@@ -1,4 +1,4 @@
-const apiDomain = 'https://localhost:3000/';
+const apiDomain = 'http://localhost:3000/';
 
 class HTTP {
     request({ url, data = {}, method = 'GET'}) {

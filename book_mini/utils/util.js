@@ -1,3 +1,7 @@
+/**
+ * 格式化时间
+ * @param {Number} date 
+ */
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1

@@ -36,10 +36,11 @@ Page({
 	onLoad: function () {
 		// 获取最新一期
 		getData.getLatestIssue().then((res) => {
-			this.setData({
-				bannerData: res
-			})
-			console.log(this.data.bannerData)
+			// this.setData({
+			// 	bannerData: res
+			// })
+			// console.log(this.data.bannerData)
+			console.log(res)
 		})
 	},
 
