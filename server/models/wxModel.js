@@ -12,7 +12,7 @@ class WXManager {
 
     }
     /**
-     * @param {String} code 小程序中生成的，需要再小程序中测试
+     * @param {String} code 小程序中登录接口生成的，需要再小程序中测试
      */
     static async codeToToken(code) {
         const {

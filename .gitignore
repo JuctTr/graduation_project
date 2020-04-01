@@ -1,6 +1,7 @@
 server/node_modules
 server/package-lock.json
 server/.vscode
+server/static
 设计稿/
 book_mini/config.js
 book_mini/node_modules

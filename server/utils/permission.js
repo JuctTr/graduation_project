@@ -66,11 +66,10 @@ class Permission {
     }
 
     static verifyToken (token) {
-        try{
+        try {
             jwt.verify(token, global.config.security.secretKey);
             return true;
-        }
-        catch (error){
+        } catch (error){
             return false;
         }
 

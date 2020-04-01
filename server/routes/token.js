@@ -1,11 +1,15 @@
 const Router = require('koa-router');
 const router = new Router();
 
-const { TokenValidator } = require('../validators/validators');
+const { 
+    TokenValidator,
+    NotEmptyValidator
+} = require('../validators/validators');
 const { LoginType } = require('../validators/enumLoginType');
 const { User } = require('../models/userModel');
 const { WXManager } = require('../models/wxModel');
 const { generateToken } = require('../utils/util');
+const { Permission } = require('../utils/permission');
 
 
 router.post('/token', async (ctx) => {
@@ -32,13 +36,19 @@ router.post('/token', async (ctx) => {
             break;
         default:
             throw new global.errors.ParameterException('没有相应的处理函数');
-
-
     }
     ctx.body = {
         userToken
     }
+})
 
+router.post('/token/verify', async (ctx) => {
+    const v = await new NotEmptyValidator().validate(ctx);
+    const token = v.get('body.token');
+    const result = Permission.verifyToken(token);
+    ctx.body = {
+        isValid: result
+    }
 })
 
 // 邮箱和密码登录

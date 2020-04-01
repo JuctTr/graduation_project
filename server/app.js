@@ -1,15 +1,18 @@
 const Koa = require('koa');
 const requireDirectory = require('require-directory');
 const Router = require('koa-router');
+const path = require('path');
 // 中间件
 const bodyParser = require('koa-bodyparser');
 
 const catchError = require('./utils/exception'); // 全局异常处理
+const staticData = require('koa-static'); // 静态目录文件
 
 const app = new Koa();
 
 app.use(bodyParser());
 app.use(catchError); // 全局异常处理
+app.use(staticData(path.join(__dirname, './static')));
 
 /**
  * 加载全局配置项
@@ -33,6 +36,7 @@ var reqRouteUrl = `${process.cwd()}/routes`;
 requireDirectory(module, reqRouteUrl, {
     visit: afterLoadModule
 })
+
 /**
  * @param {Object} 这里只是针对一个对象的处理，要是路由模块中导出多个对象，这里应该如何处理？
  */
