@@ -1,10 +1,7 @@
 //index.js
-//获取应用实例
 const app = getApp();
 import { IndexModel } from '../../model/indexModel';
-let getData = new IndexModel();
-
-
+const model = new IndexModel();
 
 Page({
 	data: {
@@ -35,7 +32,7 @@ Page({
 	
 	onLoad: function () {
 		// 获取最新一期
-		getData.getLatestIssue().then((res) => {
+		model.getLatestIssue().then((res) => {
 			// this.setData({
 			// 	bannerData: res
 			// })

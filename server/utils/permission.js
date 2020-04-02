@@ -23,6 +23,7 @@ class Permission {
         return async (ctx, next) => {
             
             const userToken = basicAuth(ctx.req);
+            console.log(userToken, '用户token')
             let errMsg = 'token不合法';
 
             // 1、用户token不存在、不合法

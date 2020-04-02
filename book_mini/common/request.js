@@ -1,3 +1,5 @@
+import { Base64 } from 'js-base64';
+
 const apiDomain = 'http://localhost:3000/';
 
 class HTTP {
@@ -13,7 +15,8 @@ class HTTP {
             method: method,
             data: data,
             header: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: this._encode() // 使用basic Auth进行传输，这个知识点还需学习
             },
             success: (res) => {
                 let code = res.statusCode.toString();
@@ -31,6 +34,17 @@ class HTTP {
                 // this.show_error(1);
             }            
         })
+    }
+    /**
+     * @description 使用basic Auth进行传输，对传参进行拼接
+     */
+    _encode() {
+        const token = wx.getStorageSync('token');
+        
+        // const base64 = new Base64()
+        const result = Base64.encode(token + ':');
+        console.log(result);
+        return 'Basic ' + result;
     }
 }
 

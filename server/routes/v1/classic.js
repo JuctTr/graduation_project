@@ -14,7 +14,7 @@ const {
 /**
  * 请求最新一期的数据
  */
-router.get('/lastest', new Permission().isCorrectToken, async (ctx, next) => {
+router.get('/latest', new Permission().isCorrectToken, async (ctx, next) => {
     // 对数据库中的数据进行排序，把期刊号最大的一期，返回给前端
     const lastestData = await Flow.findOne({
         order: [
@@ -22,8 +22,6 @@ router.get('/lastest', new Permission().isCorrectToken, async (ctx, next) => {
         ]
     });
     ctx.body = lastestData;
-
-
 });
 
 /**

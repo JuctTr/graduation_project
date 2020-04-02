@@ -12,6 +12,7 @@
   "author": "wangyicong",
   "license": "ISC",
   "dependencies": {
+    "js-base64": "^2.5.2",
     "lin-ui": "^0.7.3"
   }
 }

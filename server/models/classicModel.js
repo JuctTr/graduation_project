@@ -6,17 +6,17 @@ const {
 
 // 三个类共同的数据表
 const commonFields = {
-    title: Sequelize.STRING,
+    title: Sequelize.STRING, // 题目
     image: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING, // 海报图片
     },
-    content: Sequelize.STRING,
-    cardType: Sequelize.TINYINT,
+    content: Sequelize.STRING, // 海报图片上的描述
+    cardType: Sequelize.TINYINT, // 卡片类型（书籍、电影、音乐）
     fav_nums: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER, // 点赞人数
         defaultValue: 0
     },
-    pubdate: Sequelize.DATEONLY
+    pubdate: Sequelize.DATEONLY // 发表日期
 }
 
 /**
