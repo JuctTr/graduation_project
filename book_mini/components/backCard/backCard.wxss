@@ -1,0 +1,39 @@
+.back_book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    background-color: #ffffff;
+    position: relative;
+}
+.back_book .poster {
+    width: 100%;
+    height: 400rpx;
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+}
+.back_book .content {
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.back_book .content .desc {
+    font-size: 28rpx;
+}
+.back_book .content .icon {
+    display: block;
+    width: 30rpx;
+    height: 30rpx;
+    margin: 20rpx;
+}
+.back_book .footer_info {
+    font-size: 28rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: #777777;
+}

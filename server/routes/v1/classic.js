@@ -10,18 +10,22 @@ const {
     // Book,
     // Music
 } = require('../../models/classicModel');
+const { CommonModel } = require('../../models/commonModel');
 
 /**
  * 请求最新一期的数据
  */
 router.get('/latest', new Permission().isCorrectToken, async (ctx, next) => {
-    // 对数据库中的数据进行排序，把期刊号最大的一期，返回给前端
-    const lastestData = await Flow.findOne({
+    
+    const latestData = await Flow.findOne({
         order: [
-            ['index', 'DESC']
+            ['index', 'DESC'] // 对数据库中的Flow实体表中数据进行排序，把期刊号最大的一期，返回给前端
         ]
     });
-    ctx.body = lastestData;
+    // console.log(latestData, '最后一期')
+    commonData = await CommonModel.getData(latestData.art_id, latestData.type);
+    // console.log(commonData)
+    ctx.body = commonData;
 });
 
 /**

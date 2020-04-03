@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    likeImage: 'https://yicong.com/index/images/my.png'
+    likeImage: 'http://localhost:3000/images/my.png'
   },
 
   /**

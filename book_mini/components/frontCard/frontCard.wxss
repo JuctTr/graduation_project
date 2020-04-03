@@ -11,7 +11,7 @@
 .front_book .movie_title {
     width: 163rpx;
     height: 336rpx;
-    background-image: url('https://yicong.com/index/images/movie_title.png');
+    background-image: url('http://localhost:3000/images/movie_title.png');
     background-size: 100% 100%;
     position: absolute;
     left: 20rpx;

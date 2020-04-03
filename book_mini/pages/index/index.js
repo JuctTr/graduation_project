@@ -6,7 +6,88 @@ const model = new IndexModel();
 Page({
 	data: {
 		autoplay: false,
-		bannerData: [],
+		bannerData: [{
+			"id": 1,
+			"index": 7,
+			"like_status": 0,
+			"cardType": 100,
+			"frontData": {
+				"img": "http://localhost:3000/images/animal.png",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "“我们应该到那里去，我们属于那里。” “不，我们不属于任何地方，除了彼此身边。”",
+				"title": "疯狂的动物城",
+				"img": "http://localhost:3000/images/back_animal.jpg"
+			}        
+		},{
+			"id": 2,
+			"index": 6,
+			"frontData": {
+				"img": "http://localhost:3000/images/avengers.jpg",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "人生不能像做菜，把所有的料准备好才下锅",
+				"title": "疯狂的动物城",
+				"img": "http://localhost:3000/images/back_avengers.jpg"
+			},  
+			"cardType": 200       
+		},{
+			"id": 3,
+			"index": 5,
+			"frontData": {
+				"img": "http://localhost:3000/images/animal.png",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "人生不能像做菜，把所有的料准备好才下锅",
+				"title": "疯狂的动物城"
+			},  
+			"cardType": 300       
+		},{
+			"id": 4,
+			"index": 4,
+			"frontData": {
+				"img": "http://localhost:3000/images/avengers.jpg",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "人生不能像做菜，把所有的料准备好才下锅",
+				"title": "疯狂的动物城"
+			},  
+			"cardType": 100       
+		},{
+			"id": 5,
+			"index": 6,
+			"frontData": {
+				"img": "http://localhost:3000/images/animal.png",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "人生不能像做菜，把所有的料准备好才下锅",
+				"title": "疯狂的动物城"
+			},  
+			"cardType": 200       
+		},{
+			"id": 6,
+			"index": 2,
+			"frontData": {
+				"img": "http://localhost:3000/images/avengers.jpg",
+				"pubdate": "2018-06-22",
+				"fav_nums": 10
+			},
+			"backData": {
+				"content": "人生不能像做菜，把所有的料准备好才下锅",
+				"title": "疯狂的动物城"
+			},  
+			"cardType": 300       
+		}],
 		everyCard: [{
 			animationData: {},
 			ifFrontOrBack: false

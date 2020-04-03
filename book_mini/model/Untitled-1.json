@@ -5,7 +5,7 @@
         "like_status": 0,
         "cardType": 100,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
@@ -17,7 +17,7 @@
         "id": 2,
         "index": 6,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
@@ -30,7 +30,7 @@
         "id": 3,
         "index": 5,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
@@ -43,7 +43,7 @@
         "id": 4,
         "index": 4,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
@@ -56,7 +56,7 @@
         "id": 5,
         "index": 6,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
@@ -69,7 +69,7 @@
         "id": 6,
         "index": 2,
         "frontData": {
-            "img": "https://yicong.com/index/images/animal.png",
+            "img": "http://localhost:3000/images/animal.png",
             "pubdate": "2018-06-22",
             "fav_nums": 10
         },
