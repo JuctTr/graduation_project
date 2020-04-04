@@ -23,7 +23,6 @@ class CommonModel {
         switch (type) {
             case 100:
                 result = await Movie.findOne(finder);
-                console.log(result.dataValues)
                 break;
             case 200:
 

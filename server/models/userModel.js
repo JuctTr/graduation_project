@@ -24,7 +24,7 @@ class User extends Model {
             where: {
                 email
             }
-        })
+        });
         // 如果数据库中查询不到这个账号
         if (!user) {
             throw new global.errors.AuthFailed('账号不存在');

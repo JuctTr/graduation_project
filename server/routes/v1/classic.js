@@ -22,9 +22,9 @@ router.get('/latest', new Permission().isCorrectToken, async (ctx, next) => {
             ['index', 'DESC'] // 对数据库中的Flow实体表中数据进行排序，把期刊号最大的一期，返回给前端
         ]
     });
-    // console.log(latestData, '最后一期')
-    commonData = await CommonModel.getData(latestData.art_id, latestData.type);
-    // console.log(commonData)
+
+    const commonData = await CommonModel.getData(latestData.art_id, latestData.type);
+    commonData.setDataValue('index', latestData.index); // 把Flow实体表中的期刊号index，setDataValue方法是sequelize中的方法
     ctx.body = commonData;
 });
 
