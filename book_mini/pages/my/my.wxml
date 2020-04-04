@@ -1,2 +1,11 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+    <view class="auth_avatar">
+        <!-- 这里的button原来是不支持自定义样式的，在app.json中去掉"style": "v2"之后就支持了 -->
+        <button class="auth_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            <image class="avatar" src="{{userInfo.avatarUrl}}" />
+        </button>
+        <view class="nickname">{{userInfo.nickName}}</view>
+    </view>
+    <image class="banner" src="../../images/love.png"/>
+</view>

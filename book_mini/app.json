@@ -31,7 +31,7 @@
       },
       {
         "pagePath": "pages/my/my",
-        "text": "喜欢",
+        "text": "我的",
         "iconPath": "images/tabBarIcon/my.png",
         "selectedIconPath": "images/tabBarIcon/my@highlight.png"
       }
@@ -41,6 +41,5 @@
     "audio",
     "location"
   ],
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

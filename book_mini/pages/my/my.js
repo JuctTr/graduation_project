@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {
+      nickName: '点击授权图像和昵称',
+      avatarUrl: '../../images/avatar_default.png',
+    }
   },
 
   /**
@@ -27,6 +30,20 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  getUserInfo(event) {
+    console.log(event.detail.userInfo);
+    const {
+      nickName,
+      avatarUrl,
+    } = event.detail.userInfo;
+    this.setData({
+      userInfo: {
+        nickName,
+        avatarUrl,
+      }
+    })
   },
 
   /**
