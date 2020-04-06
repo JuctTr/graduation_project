@@ -6,6 +6,12 @@ class IndexModel extends HTTP {
             url: 'classic/latest'
         })
     }
+    
+    getAllClassic() {
+        return this.request({
+            url: 'classic/all'
+        })
+    }
 }
 
 export {

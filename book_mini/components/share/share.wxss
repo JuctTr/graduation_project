@@ -1,14 +1,18 @@
 /* components/share/share.wxss */
 .container {
-    width: 60rpx;
-    height: 60rpx;
+    width: 50rpx;
+    height: 50rpx;
 }
 .share_btn {
-    width: 100%;
-    height: 100%;
+    width: 50rpx;
+    height: 50rpx;
     padding: 0;
     margin: 0;
-    background-image: url('http://localhost:3000/images/share.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background: none;
+    line-height: 0;
+}
+.share_btn .share_bg {
+    width: 50rpx;
+    height: 50rpx;
+
 }

@@ -1,3 +1,4 @@
+require('module-alias/register'); // 路径别名
 const Koa = require('koa');
 const requireDirectory = require('require-directory');
 const Router = require('koa-router');

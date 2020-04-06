@@ -1,4 +1,6 @@
 <!--components/share/share.wxml-->
 <view class="container">
-    <button class="share_btn" open-type="share" plain="{{true}}" size="mini"></button>
+    <button class="share_btn" open-type="share">
+        <image class="share_bg" src="http://localhost:3000/images/share.png"></image>
+    </button>
 </view>

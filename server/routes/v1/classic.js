@@ -4,13 +4,27 @@ const router = new Router({
 });
 
 const { Permission } = require('../../utils/permission');
-const { Flow } = require('../../models/FlowModel');
+const { Flow } = require('@models/FlowModel');
 const {
     Movie,
     // Book,
-    // Music
+    // Music,
+    // Classic,
 } = require('../../models/classicModel');
 const { CommonModel } = require('../../models/commonModel');
+
+/**
+ * @description 获取全部数据的接口
+ */
+// router.get('/all', new Permission().isCorrectToken, async (ctx, next) => {
+     
+//     const allClassic = await Classic.findAll({
+//         order:[
+//             ['index']
+//         ]
+//     });
+//     ctx.body = allClassic;
+// })
 
 /**
  * 请求最新一期的数据

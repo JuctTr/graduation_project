@@ -20,6 +20,17 @@ const commonFields = {
 }
 
 /**
+ * 获取首页全部数据的类，之后修改
+ */
+// class Classic extends Model {
+
+// }
+// Classic.init(commonFields, {
+//     sequelize,
+//     tableName: 'classics'
+// })
+
+/**
  * @description 电影类
  */
 class Movie extends Model {
@@ -64,5 +75,6 @@ Movie.init(commonFields, {
 module.exports = {
     Movie,
     // Book,
-    // Music
+    // Music,
+    // Classic,
 }

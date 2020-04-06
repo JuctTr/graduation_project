@@ -9,7 +9,7 @@
 }
 .like {
     width: 60rpx;
-    height: 60rpx;
+    height: 50rpx;
 }
 .fav_nums {
     color: #ffffff;

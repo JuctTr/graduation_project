@@ -13,7 +13,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    likeImage: 'http://localhost:3000/images/my.png'
+    likeImage: 'http://localhost:3000/images/my.png',
+    like: false,
   },
 
   /**
@@ -26,6 +27,10 @@ Component({
     console.log(this.properties.favNums)
   },
   methods: {
-
+    onLike() {
+      this.setData({
+        like: !this.data.like
+      })
+    }
   }
 })

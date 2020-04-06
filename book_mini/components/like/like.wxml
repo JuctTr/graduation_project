@@ -1,5 +1,5 @@
 <!--components/like/like.wxml-->
 <view class="container">
-    <image class="like" src="{{likeImage}}" />
+    <image class="like" bindtap="onLike" src="{{like ? '../../images/like.png' : '../../images/dislike.png'}}" />
     <text class="fav_nums">{{favNums}}</text>
 </view>
