@@ -11,24 +11,13 @@ const commonFields = {
         type: Sequelize.STRING, // 海报图片
     },
     content: Sequelize.STRING, // 海报图片上的描述
-    card_type: Sequelize.TINYINT, // 卡片类型（书籍、电影、音乐）
+    type: Sequelize.TINYINT, // 卡片类型（书籍、电影、音乐）
     fav_nums: {
         type: Sequelize.INTEGER, // 点赞人数
         defaultValue: 0
     },
     pubdate: Sequelize.DATEONLY // 发表日期
 }
-
-/**
- * 获取首页全部数据的类，之后修改
- */
-// class Classic extends Model {
-
-// }
-// Classic.init(commonFields, {
-//     sequelize,
-//     tableName: 'classics'
-// })
 
 /**
  * @description 电影类
@@ -48,9 +37,7 @@ Movie.init(commonFields, {
  * @description 书籍类
  */
 // class Book extends Model {
-//     constructor() {
-        // super();
-//     }
+
 // }
 
 // Book.init(commonFields, {
@@ -61,20 +48,27 @@ Movie.init(commonFields, {
 /**
  * @description 音乐类
  */
-// class Music extends Model {
-//     constructor() {
-    // super();
-//     }
-// }
+class Music extends Model {
 
-// Music.init(commonFields, {
-//     sequelize,
-//     tableName: '数据表名'
-// })
+}
+
+Music.init(commonFields, {
+    sequelize,
+    tableName: 'music'
+})
+
+class Sentence extends Model {
+
+}
+
+Sentence.init(commonFields, {
+    sequelize,
+    tableName: 'sentence'
+})
 
 module.exports = {
     Movie,
     // Book,
-    // Music,
-    // Classic,
+    Music,
+    Sentence,
 }

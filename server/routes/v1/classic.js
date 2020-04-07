@@ -8,23 +8,25 @@ const { Flow } = require('@models/FlowModel');
 const {
     Movie,
     // Book,
-    // Music,
-    // Classic,
+    Music,
+    Sentence
 } = require('../../models/classicModel');
 const { CommonModel } = require('../../models/commonModel');
 
 /**
  * @description 获取全部数据的接口
  */
-// router.get('/all', new Permission().isCorrectToken, async (ctx, next) => {
-     
-//     const allClassic = await Classic.findAll({
-//         order:[
-//             ['index']
-//         ]
-//     });
-//     ctx.body = allClassic;
-// })
+router.get('/all', new Permission().isCorrectToken, async (ctx, next) => {
+    /**
+     * @returns {Array} [{ id: 1, index: 1, art_id: 3}, {...}, {...}]
+     */
+    const allClassicIds = await Flow.findAll({
+        order: ['index']
+    });
+    const allIndexData = await CommonModel.getAllIndexData(allClassicIds);
+    
+    ctx.body = allIndexData;
+})
 
 /**
  * 请求最新一期的数据

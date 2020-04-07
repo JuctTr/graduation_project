@@ -113,7 +113,7 @@ Page({
 	
 	onLoad: function () {
 		// 获取最新一期
-		model.getLatestIssue().then((res) => {
+		model.getAllClassic().then((res) => {
 			// this.setData({
 			// 	bannerData: res
 			// })
