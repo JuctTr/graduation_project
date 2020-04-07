@@ -24,7 +24,14 @@ const sequelize = new Sequelize(dbName, user, password, {
         createdAt: 'created_at', // 把字段名字改成自定义的
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at',
-        underscored: true // 把所有的驼峰命名式的字段变成下划线的
+        underscored: true, // 把所有的驼峰命名式的字段变成下划线的
+        scopes: { // 全局scopes，去掉三个时间字段
+          removeTime: {
+            attributes: {
+              exclude: ['updated_at', 'created_at', 'deleted_at']
+            }
+          }
+        }
     }
 })
 

@@ -14,7 +14,7 @@ const {
 const { CommonModel } = require('../../models/commonModel');
 
 /**
- * @description 获取全部数据的接口
+ * @description 获取首页全部数据的接口
  */
 router.get('/all', new Permission().isCorrectToken, async (ctx, next) => {
     /**

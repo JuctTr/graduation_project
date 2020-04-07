@@ -30,13 +30,13 @@ class CommonModel {
 
         switch (type) {
             case 100:
-                result = await Movie.findOne(finder);
+                result = await Movie.scope('removeTime').findOne(finder);
                 break;
             case 200:
-                result = await Music.findOne(finder);
+                result = await Music.scope('removeTime').findOne(finder);
                 break;
             case 300:
-                result = await Sentence.findOne(finder);
+                result = await Sentence.scope('removeTime').findOne(finder);
                 break;
             case 400:
                 // result = await Book.findOne(finder);
@@ -85,13 +85,13 @@ class CommonModel {
         type = parseInt(type); // 传进来的type是字符串"100"，需要转型为数字
         switch (type) {
             case 100:
-                result = await Movie.findAll(finder);
+                result = await Movie.scope('removeTime').findAll(finder);
                 break;
             case 200:
-                result = await Music.findAll(finder);
+                result = await Music.scope('removeTime').findAll(finder);
                 break;
             case 300:
-                result = await Sentence.findAll(finder);
+                result = await Sentence.scope('removeTime').findAll(finder);
                 break;
             case 400:
                 // result = await Book.findAll(finder);
