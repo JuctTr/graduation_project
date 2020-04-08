@@ -1,5 +1,6 @@
 //index.js
 const app = getApp();
+import { dealIndexData } from '../../utils/tool';
 import { IndexModel } from '../../model/indexModel';
 const model = new IndexModel();
 
@@ -21,89 +22,8 @@ Page({
 				"title": "疯狂的动物城",
 				"img": "http://localhost:3000/images/back_animal.jpg"
 			}        
-		},{
-			"id": 2,
-			"index": 6,
-			"frontData": {
-				"img": "http://localhost:3000/images/avengers.jpg",
-				"pubdate": "2018-06-22",
-				"fav_nums": 10
-			},
-			"backData": {
-				"content": "人生不能像做菜，把所有的料准备好才下锅",
-				"title": "疯狂的动物城",
-				"img": "http://localhost:3000/images/back_avengers.jpg"
-			},  
-			"cardType": 200       
-		},{
-			"id": 3,
-			"index": 5,
-			"frontData": {
-				"img": "http://localhost:3000/images/animal.png",
-				"pubdate": "2018-06-22",
-				"fav_nums": 10
-			},
-			"backData": {
-				"content": "人生不能像做菜，把所有的料准备好才下锅",
-				"title": "疯狂的动物城"
-			},  
-			"cardType": 300       
-		},{
-			"id": 4,
-			"index": 4,
-			"frontData": {
-				"img": "http://localhost:3000/images/avengers.jpg",
-				"pubdate": "2018-06-22",
-				"fav_nums": 10
-			},
-			"backData": {
-				"content": "人生不能像做菜，把所有的料准备好才下锅",
-				"title": "疯狂的动物城"
-			},  
-			"cardType": 100       
-		},{
-			"id": 5,
-			"index": 6,
-			"frontData": {
-				"img": "http://localhost:3000/images/animal.png",
-				"pubdate": "2018-06-22",
-				"fav_nums": 10
-			},
-			"backData": {
-				"content": "人生不能像做菜，把所有的料准备好才下锅",
-				"title": "疯狂的动物城"
-			},  
-			"cardType": 200       
-		},{
-			"id": 6,
-			"index": 2,
-			"frontData": {
-				"img": "http://localhost:3000/images/avengers.jpg",
-				"pubdate": "2018-06-22",
-				"fav_nums": 10
-			},
-			"backData": {
-				"content": "人生不能像做菜，把所有的料准备好才下锅",
-				"title": "疯狂的动物城"
-			},  
-			"cardType": 300       
 		}],
 		everyCard: [{
-			animationData: {},
-			ifFrontOrBack: false
-		}, {
-			animationData: {},
-			ifFrontOrBack: false
-		}, {
-			animationData: {},
-			ifFrontOrBack: false
-		}, {
-			animationData: {},
-			ifFrontOrBack: false
-		}, {
-			animationData: {},
-			ifFrontOrBack: false
-		}, {
 			animationData: {},
 			ifFrontOrBack: false
 		}],
@@ -113,12 +33,20 @@ Page({
 	
 	onLoad: function () {
 		// 获取最新一期
-		model.getAllClassic().then((res) => {
-			// this.setData({
-			// 	bannerData: res
-			// })
-			// console.log(this.data.bannerData)
-			console.log(res)
+		model.getAllClassic().then((source) => {
+			let everyCard = [];
+			const bannerData = dealIndexData(source);
+			console.log(bannerData)
+			bannerData.forEach(() => {
+				everyCard.push({
+					animationData: {},
+					ifFrontOrBack: false
+				})
+			})
+			this.setData({
+				bannerData,
+				everyCard
+			});
 		})
 	},
 
@@ -134,7 +62,8 @@ Page({
 
 	onFlipCard(event) {
 
-		var currentIndex = event.currentTarget.dataset.id - 1;
+		var currentIndex = event.currentTarget.dataset.id;
+		console.log(currentIndex)
 		this.commonFilp(currentIndex);
 
 	},

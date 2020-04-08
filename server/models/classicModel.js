@@ -51,8 +51,10 @@ Movie.init(commonFields, {
 class Music extends Model {
 
 }
-
-Music.init(commonFields, {
+const musicFields = Object.assign({
+    url:Sequelize.STRING
+}, commonFields)
+Music.init(musicFields, {
     sequelize,
     tableName: 'music'
 })

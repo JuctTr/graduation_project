@@ -12,7 +12,11 @@
         catch:tap="onFlipCard"
         wx:if="{{cardType == 200}}"
         data-id="{{id}}">
-        <image class="card_bg" src="{{frontData.img}}" />
+        <view class="music_box">
+            <image class="poster_img" src="http://localhost:3000/images/smile.png"></image>
+            <image class="play_img" src="../../images/music/player@pause.png"></image>
+        </view>
+        <!-- <image class="card_bg" src="{{frontData.img}}" /> -->
     </view>
 </template>
 <template name="front_movie">

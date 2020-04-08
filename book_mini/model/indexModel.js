@@ -10,7 +10,7 @@ class IndexModel extends HTTP {
     getAllClassic() {
         return this.request({
             url: 'classic/all'
-        })
+        });
     }
 }
 

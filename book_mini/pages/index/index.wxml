@@ -8,7 +8,7 @@
         <swiper-item class="item" wx:for="{{bannerData}}" wx:key="index">
             <view class="swiper_item">
                 <!-- 卡牌 -->
-                <view class="flip_box" animation="{{everyCard[item.id - 1].animationData}}">
+                <view class="flip_box" animation="{{everyCard[item.id].animationData}}">
                 <!-- <view class="flip_box" animation="{{item.ifFilpCard ? animationData : '{}'}}"> -->
                     <view class="front flip_item">
                         <template is="front_book" data="{{...item}}"></template>
