@@ -24,15 +24,12 @@ class HotBook extends Model {
         books.forEach(book => { // 如果这里是一个异步操作，不允许在forEach里面的回调函数使用asyns和await，会出现错误
             ids.push(book.id)
         })
-        console.log(ids, 'id数组查询')
         const favors = await Favor.findAll({
             where:{
                 art_id:{
                     [Op.in]: ids,
                 },
-                type:400
-                // 国画
-                // 漫画
+                type: 400
             },
             group:['art_id'],
             attributes:['art_id', [Sequelize.fn('COUNT','*'),'count']]
