@@ -34,17 +34,33 @@ class Favor extends Model {
                 art_id,
                 type,
                 uid
-            }, { transaction: t })
+            }, { transaction: t });
+
             const art = await CommonModel.getData(art_id, type, false);
-            await art.increment('fav_nums', { // 把对应查询出来的数据的fav_nums字段加1
-                by: 1,
-                transaction: t
-            })
+            // 把对应查询出来的数据的fav_nums字段加1
+            await art.increment('fav_nums', { by: 1, transaction: t });
         })
     }
 
     static async dislike(art_id, type, uid) {
+        const favor = await Favor.findOne({
+            where: {
+                art_id,
+                type,
+                uid
+            }
+        });
+        if (!favor) {
+            throw new global.errors.DislikeError()
+        }
+        return sequelize.transaction(async t => {
 
+            await favor.destroy({ force: true, transaction: t });
+
+            const art = await CommonModel.getData(art_id, type, false);
+
+            await art.decrement('fav_nums', { by: 1, transaction: t });
+        })
     }
 }
 
