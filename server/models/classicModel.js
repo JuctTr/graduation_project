@@ -10,6 +10,9 @@ const commonFields = {
     image: {
         type: Sequelize.STRING, // 海报图片
     },
+    back_image: {
+        type: Sequelize.STRING, // 海报背面图片
+    },
     content: Sequelize.STRING, // 海报图片上的描述
     type: Sequelize.TINYINT, // 卡片类型（书籍、电影、音乐）
     fav_nums: {

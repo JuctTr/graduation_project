@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/books/books"
+    "pages/books/books",
+    "pages/find/find",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,8 +26,20 @@
         "selectedIconPath": "images/tabBarIcon/classic@highlight.png"
       },
       {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "images/tabBarIcon/book.png",
+        "selectedIconPath": "images/tabBarIcon/book@highlight.png"
+      },
+      {
         "pagePath": "pages/books/books",
         "text": "书单",
+        "iconPath": "images/tabBarIcon/book.png",
+        "selectedIconPath": "images/tabBarIcon/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发表",
         "iconPath": "images/tabBarIcon/book.png",
         "selectedIconPath": "images/tabBarIcon/book@highlight.png"
       },

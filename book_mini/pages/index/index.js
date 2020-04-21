@@ -13,14 +13,14 @@ Page({
 			"like_status": 0,
 			"cardType": 100,
 			"frontData": {
-				"img": "http://localhost:3000/images/animal.png",
+				"img": "http://192.168.0.13:3000/images/animal.png",
 				"pubdate": "2018-06-22",
 				"fav_nums": 10
 			},
 			"backData": {
 				"content": "“我们应该到那里去，我们属于那里。” “不，我们不属于任何地方，除了彼此身边。”",
 				"title": "疯狂的动物城",
-				"img": "http://localhost:3000/images/back_animal.jpg"
+				"img": "http://192.168.0.13:3000/images/back_animal.jpg"
 			}        
 		}],
 		everyCard: [{

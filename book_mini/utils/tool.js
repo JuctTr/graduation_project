@@ -1,5 +1,5 @@
 
-const defaultImgUrl = "http://localhost:3000/images/animal.png"; // 临时的url，之后要替换
+const defaultImgUrl = "http://192.168.0.13:3000/images/animal.png"; // 临时的url，之后要替换
 
 export {
     dealIndexData,
@@ -11,10 +11,9 @@ export {
 function dealIndexData (source) {
     const result = [];
 
-    // 利用日期的先后发表，往每一个数组里面push一个index期刊字段
     let len = source.length;
     let tempId = 0;
-    source.sort((a, b) => {
+    source.sort((a, b) => { // 利用日期的先后发表，往每一个数组里面push一个index期刊字段
         if (Date.parse(a.pubdate) <= Date.parse(b.pubdate)) {
             return 1;
         }
@@ -29,6 +28,7 @@ function dealIndexData (source) {
             like_status,
             type,
             image,
+            back_image,
             title,
             content,
             pubdate,
@@ -43,7 +43,7 @@ function dealIndexData (source) {
         initData.backData = {
             content,
             title,
-            img: image,
+            img: back_image,
         }
         initData.id = id;
         initData.index = index;
