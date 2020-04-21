@@ -5,7 +5,7 @@ const {
     TokenValidator,
     NotEmptyValidator
 } = require('../validators/validators');
-const { LoginType } = require('../validators/enumLoginType');
+const { LoginType } = require('../validators/enumType');
 const { User } = require('../models/userModel');
 const { WXManager } = require('../models/wxModel');
 const { generateToken } = require('../utils/util');

@@ -20,23 +20,24 @@ class CommonModel {
         this.type = type;
     }   
 
-    static async getData(art_id, type) {
+    static async getData(art_id, type, useScope = true) {
         let result = null;
         const finder = {
             where: {
                 id: art_id
             }
         }
-
+        const scope = useScope ? 'removeTime' : null; // 不查询“创建时间”、“删除时间”、“更新时间”
+        type = parseInt(type); // 传进来的type是字符串"100"，需要转型为数字
         switch (type) {
             case 100:
-                result = await Movie.scope('removeTime').findOne(finder);
+                result = await Movie.scope(scope).findOne(finder);
                 break;
             case 200:
-                result = await Music.scope('removeTime').findOne(finder);
+                result = await Music.scope(scope).findOne(finder);
                 break;
             case 300:
-                result = await Sentence.scope('removeTime').findOne(finder);
+                result = await Sentence.scope(scope).findOne(finder);
                 break;
             case 400:
                 // result = await Book.findOne(finder);

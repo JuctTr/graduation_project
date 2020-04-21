@@ -1,3 +1,12 @@
+function isThisType(val) {
+    for (let key in this) {
+        if (this[key] === val) {
+            return true
+        }
+    }
+    return false
+}
+
 /**
  * @description 枚举登录类型，用于validator.js判断
  */
@@ -8,17 +17,10 @@ const LoginType = {
     ADMIN_EMAIL: 200,       // 管理员登录
     isThisType
 }
-
-function isThisType(val) {
-    for (let key in this) {
-        if (this[key] === val) {
-            return true
-        }
-    }
-    return false
-}
-
-const ArtType = {
+/**
+ * @description 枚举期刊类型，用于validator.js判断
+ */
+const JournalType = {
     MOVIE: 100,
     MUSIC: 200,
     SENTENCE: 300,
@@ -30,5 +32,5 @@ const ArtType = {
 
 module.exports = {
     LoginType,
-    ArtType
+    JournalType
 }

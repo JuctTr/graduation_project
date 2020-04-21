@@ -4,6 +4,7 @@ const {
     Model,
     Op
 } = require('sequelize');
+const { Favor } = require('./favorModel');
 
 class HotBook extends Model {
     /**
@@ -24,23 +25,34 @@ class HotBook extends Model {
             ids.push(book.id)
         })
         console.log(ids, 'id数组查询')
-        // const favors = await Favor.findAll({
-        //     where:{
-        //         art_id:{
-        //             [Op.in]:ids,
-        //         },
-        //         type:400
-        //         // 国画
-        //         // 漫画
-        //     },
-        //     group:['art_id'],
-        //     attributes:['art_id', [Sequelize.fn('COUNT','*'),'count']]
-        // })
-        // books.forEach(book=>{
-        //      HotBook._getEachBookStatus(book, favors)
-        // })
-        // //python 二维矩阵
-        // return books
+        const favors = await Favor.findAll({
+            where:{
+                art_id:{
+                    [Op.in]: ids,
+                },
+                type:400
+                // 国画
+                // 漫画
+            },
+            group:['art_id'],
+            attributes:['art_id', [Sequelize.fn('COUNT','*'),'count']]
+        })
+        books.forEach(book=>{
+            HotBook._getEachBookStatus(book, favors);
+        })
+        //python 二维矩阵
+        return books;
+    }
+
+    static _getEachBookStatus(book, favors){
+        let count = 0;
+        favors.forEach(favor=>{
+            if(book.id === favor.art_id){
+                count = favor.get('count')
+            }
+        });
+        book.setDataValue('fav_nums',count);
+        return book;
     }
 }
 

@@ -4,7 +4,10 @@
  */
 const { Rule, LinValidator } = require('../utils/lin-validator');
 const { User } = require('../models/userModel');
-const { LoginType } = require('../validators/enumLoginType');
+const {
+    LoginType,
+    JournalType
+} = require('./enumType');
 /**
  * 参数规范
  */
@@ -115,9 +118,30 @@ class NotEmptyValidator extends LinValidator {
     }
 }
 
+class LikeValidator extends PositiveIntegerValidator { // 这里继承PositiveIntegerValidator只会检查id字段
+    constructor() {
+        super();
+        this.validateType = checkJournalType;
+    }
+
+}
+
+function checkJournalType(vals) {
+    let type = vals.body.type || vals.path.type;
+
+    if (!type) {
+        throw new Error('type是必须参数')
+    }
+    type = parseInt(type);
+    if (!JournalType.isThisType(type)) {
+        throw new Error('type参数不合法')
+    }
+}
+
 module.exports = {
     PositiveIntegerValidator,
     RegisterValidator,
     TokenValidator,
-    NotEmptyValidator
+    NotEmptyValidator,
+    LikeValidator,
 }
