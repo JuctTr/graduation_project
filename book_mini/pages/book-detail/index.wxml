@@ -20,9 +20,8 @@
   </view>
   <view class="sub-box">
     <text class="headLine">内容简介</text>
-    <text class="introduction">
-      {{utils.format(book.summary)}}
-    </text>
+    <!-- <text class="introduction">{{utils.format(book.summary)}}</text> -->
+    <rich-text class="introduction" nodes="{{utils.format(book.summary)}}"></rich-text>
   </view>
   <view class="sub-box">
     <text class="headLine">书籍信息</text>

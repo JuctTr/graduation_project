@@ -69,10 +69,9 @@
 .introduction {
   color: #858585;
   line-height: 50rpx;
-
   /* 发现text标签，应用text-indent属性无用，待解决*/
-
-  text-indent: 300rpx;
+  text-indent: 64rpx;
+  font-size: 32rpx;
   padding: 0 40rpx 20rpx 40rpx;
 }
 /* 书籍信息 */
@@ -85,6 +84,7 @@
   box-sizing: border-box;
   font-size: 28rpx;
   line-height: 50rpx;
+  margin-bottom: 88rpx;
 }
 .bookInfo .infoKey {
   color: #adadad;

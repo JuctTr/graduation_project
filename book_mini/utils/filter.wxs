@@ -8,7 +8,7 @@ module.exports.format = function(text) {
     }
     // 我这里没结合后台，所以这个函数暂时没有作用
     var reg = getRegExp('\\\\n', 'g');
-    var formatText = text.replace(reg, '\n&nbsp;&nbsp;&nbsp;');
+    var formatText = text.replace(reg, '<br>');// &nbsp;
     console.log(formatText)
     return formatText;
   }

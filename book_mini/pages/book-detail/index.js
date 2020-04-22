@@ -19,8 +19,8 @@ Page({
   onLoad: function (options) {
     const id = options.bookId;
     // 后面如果有后台了，就把6980改成id
-    const detailInfo = booksModel.getDetailInfo(6980);
-    const comments = booksModel.getComments(6980);
+    const detailInfo = booksModel.getDetailInfo(id);
+    const comments = booksModel.getComments(id);
     detailInfo.then((res) => {
       this.setData({
         book: res

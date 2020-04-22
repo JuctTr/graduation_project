@@ -8,5 +8,6 @@ book_mini/config.js
 book_mini/node_modules
 book_mini/miniprogram_npm
 book_mini/package-lock.json
+book_mini/project.config.json
 starter/
 lin-cms-vue/
