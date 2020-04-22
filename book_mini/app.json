@@ -28,8 +28,8 @@
       {
         "pagePath": "pages/find/find",
         "text": "发现",
-        "iconPath": "images/tabBarIcon/book.png",
-        "selectedIconPath": "images/tabBarIcon/book@highlight.png"
+        "iconPath": "images/tabBarIcon/find.png",
+        "selectedIconPath": "images/tabBarIcon/find@highlight.png"
       },
       {
         "pagePath": "pages/books/books",
@@ -40,8 +40,8 @@
       {
         "pagePath": "pages/publish/publish",
         "text": "发表",
-        "iconPath": "images/tabBarIcon/book.png",
-        "selectedIconPath": "images/tabBarIcon/book@highlight.png"
+        "iconPath": "images/tabBarIcon/publish.png",
+        "selectedIconPath": "images/tabBarIcon/publish@highlight.png"
       },
       {
         "pagePath": "pages/my/my",

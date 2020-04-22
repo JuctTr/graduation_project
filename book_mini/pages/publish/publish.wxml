@@ -1,2 +1,16 @@
 <!--pages/publish/publish.wxml-->
-<text>pages/publish/publish.wxml</text>
+<view class="container">
+    <form>
+        <view class="add_poster_box">
+            <view class="add_poster">
+                <text>+ 添加图片</text>
+            </view>
+        </view>
+        <view class="add_info">
+            <input class="title" placeholder="标题"></input>
+            <textarea class="content" placeholder="正文"></textarea>
+            <input class="author" placeholder="作者"></input>
+        </view>
+    </form>
+</view>
+

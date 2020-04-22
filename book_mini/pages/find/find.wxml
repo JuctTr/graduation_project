@@ -1,2 +1,28 @@
 <!--pages/find/find.wxml-->
-<text>pages/find/find.wxml</text>
+<scroll-view scroll-y="true" class="container">
+<block wx:for="{{finderData}}">
+    <view class="userinfo">
+        <image class="avatar" src="../../images/my/my.png"></image>
+        <view class="nick_date">
+            <text class="nick_name">大大的鸡翅</text>
+            <text class="pubdate">{{item.pubdate}}</text>
+        </view>
+    </view>
+    <view class="card">
+        <image class="poster" src="{{item.image}}"></image>
+        <view class="title">{{item.title}}</view>
+        <view class="content">{{item.content}}</view>
+        <view class="footer">
+            <view class="comment">
+                <image class="icon comment_bg" src="../../images/find/comment.png"></image>
+                <text class="num">20</text>
+            </view>
+            <view class="favor">
+                <!-- <image class="icon favor_bg" src="../../images/find/like.png"></image> -->
+                <!-- <text class="num">{{item.fav_nums}}</text> -->
+                <v-like class="num" bind:like="onLike" like="{{item.likeStatus}}" count="{{item.fav_nums}}" />
+            </view>
+        </view>
+    </view>    
+</block>
+</scroll-view>
