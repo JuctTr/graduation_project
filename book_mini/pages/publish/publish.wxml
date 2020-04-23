@@ -1,15 +1,30 @@
 <!--pages/publish/publish.wxml-->
 <view class="container">
-    <form>
+    <form bindreset="handleReset" bindsubmit="handleSubmit">
         <view class="add_poster_box">
-            <view class="add_poster">
-                <text>+ 添加图片</text>
-            </view>
+            <button class="add_poster" bindtap="chooseImageTap">
+                <block wx:if="{{!localFilename}}">
+                    <image class="upload" src="../../images/upload.png" />
+                    <text class="upload_text">上传图片</text>
+                </block>
+                <image wx:else class="upload_img" src="{{localFilename}}"></image>
+            </button>
         </view>
         <view class="add_info">
-            <input class="title" placeholder="标题"></input>
+            <input name="input" class="title" placeholder="标题"></input>
             <textarea class="content" placeholder="正文"></textarea>
-            <input class="author" placeholder="作者"></input>
+            <input name="input" class="author" placeholder="作者"></input>
+        </view>
+        <view class="category">
+            <radio-group class="radio_group" bindchange="radioChange">
+                <radio value="100">电影</radio>
+                <radio value="200">音乐</radio>
+                <radio value="300" checked="true">图文</radio>
+            </radio-group>
+        </view>
+        <view class="submit">
+            <button form-type="reset">重置</button>
+            <button form-type="submit" type="primary">提交</button>
         </view>
     </form>
 </view>

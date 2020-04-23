@@ -12,7 +12,7 @@
                 <!-- <view class="flip_box" animation="{{item.ifFilpCard ? animationData : '{}'}}"> -->
                     <view class="front flip_item">
                         <template is="front_book" data="{{...item}}"></template>
-                        <template is="front_music" data="{{...item}}"></template>
+                        <template is="front_music" data="{{...item, ...musicData}}"></template>
                         <template is="front_movie" data="{{...item}}"></template>
                     </view>
                     <view class="back flip_item">

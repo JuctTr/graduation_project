@@ -1,4 +1,4 @@
-<template name="front_book">
+<template name="front_movie">
     <view class="card front_book"  wx:if="{{cardType == 100}}">
         <image class="card_bg" catch:tap="onFlipCard" data-id="{{id}}" src="{{frontData.img}}" />
         <c-like favNums="{{frontData.fav_nums}}"></c-like>
@@ -13,13 +13,17 @@
         wx:if="{{cardType == 200}}"
         data-id="{{id}}">
         <view class="music_box">
-            <image class="poster_img" src="{{frontData.img}}"></image>
-            <image class="play_img" src="../../images/music/player@pause.png"></image>
+            <v-music id="music_comp"
+                image="{{frontData.img}}"
+                musicTitle="{{backData.title}}"
+                musicUrl="{{url}}"
+                ></v-music>
         </view>
-        <!-- <image class="card_bg" src="{{frontData.img}}" /> -->
+        <text class="music_content">{{backData.content}}</text>
+        <text class="music_title">{{backData.title}}</text>
     </view>
 </template>
-<template name="front_movie">
+<template name="front_book">
     <view class="card front_book"
         catch:tap="onFlipCard"
         wx:if="{{cardType == 300}}"
