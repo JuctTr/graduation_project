@@ -4,7 +4,7 @@
         <image class="poster" src="{{backData.img}}" />
         <view class="content">
             <image class="icon" src="../../images/icon-flag.png" />
-            <view class="desc">{{backData.content}}</view>
+            <rich-text class="desc" nodes="{{backData.content}}"></rich-text>
         </view>
         <text class="title">{{backData.title}}</text>
         <v-date-issue index="{{index}}"></v-date-issue>
@@ -23,7 +23,7 @@
         <image class="poster" src="{{backData.img}}" />
         <view class="content">
             <image class="icon" src="../../images/icon-flag.png" />
-            <view class="desc">{{backData.content}}</view>
+            <rich-text class="desc" nodes="{{backData.content}}"></rich-text>
         </view>
         <text class="title">{{backData.title}}</text>    
         <v-date-issue index="{{index}}"></v-date-issue>
@@ -39,7 +39,7 @@
         <image class="poster" src="{{backData.img}}" />
         <view class="content">
             <image class="icon" src="../../images/icon-flag.png" />
-            <view class="desc">{{backData.content}}</view>
+            <rich-text class="desc" nodes="{{backData.content}}"></rich-text>
         </view>
         <text class="title">{{backData.title}}</text>
         <v-date-issue index="{{index}}"></v-date-issue>

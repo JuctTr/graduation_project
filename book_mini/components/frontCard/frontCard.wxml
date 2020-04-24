@@ -5,18 +5,18 @@
         <!-- <view class="detail">
 
         </view> -->
-        <view class="detail_btn">点击翻转查看详情</view>
+        <view class="detail_btn movie_btn">点击翻转查看详情</view>
     </view>
 </template>
 <!-- 音乐 -->
 <template name="front_music">
     <view class="card front_book" catch:tap="onFlipCard"  wx:if="{{cardType == 200}}" data-mark="{{mark}}">
         <view class="music_box">
-            <v-music id="music_comp"
-                image="{{frontData.img}}"
-                musicTitle="{{backData.title}}"
-                musicUrl="{{url}}"
-                ></v-music>
+            <view class="music_photo">
+                <image class="poster_img {{playing?'rotation':''}}" src="{{frontData.img}}" />
+                <image class="play_img" catch:tap="onPlay"
+                src="{{!playing ? pauseSrc : playSrc }}" />
+            </view>
         </view>
         <view class="detail_btn">点击翻转查看详情</view>
     </view>
@@ -25,5 +25,6 @@
 <template name="front_book">
     <view class="card front_book" catch:tap="onFlipCard" wx:if="{{cardType == 300}}" data-mark="{{mark}}">
         <image class="card_bg" src="{{frontData.img}}" />
+        <view class="detail_btn movie_btn">点击翻转查看详情</view>        
     </view>
 </template>

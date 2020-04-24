@@ -30,6 +30,10 @@
     height: 30rpx;
     margin: 20rpx;
 }
+.back_book .title {
+    height: 200rpx;
+    line-height: 200rpx;
+}
 .back_book v-date-issue {
     position: absolute;
     left: 20rpx;

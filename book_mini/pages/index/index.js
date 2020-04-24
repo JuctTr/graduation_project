@@ -6,7 +6,7 @@ import { LikeModel } from '../../model/likeModel';
 
 const model = new IndexModel();
 const likeModel = new LikeModel();
-const mMgr = wx.getBackgroundAudioManager()
+const mMgr = wx.getBackgroundAudioManager();
 
 Page({
 	data: {
@@ -35,6 +35,13 @@ Page({
 		cardIndex: 0, // 当前卡片的索引
 		ifFilpCard: false,
 		/*--------音乐---------*/ 
+		musicData: {
+			playing: false,
+			pauseSrc: '../../images/music/player@pause.png',
+			playSrc: '../../images/music/player@play.png',		
+		},
+		musicTitle: '',
+		musicUrl: '',
 		/*--------音乐end---------*/ 
 	},
 	
@@ -43,7 +50,6 @@ Page({
 		model.getAllClassic().then((source) => {
 			let everyCard = [];
 			const bannerData = dealIndexData(source);
-			console.log(bannerData)
 			bannerData.forEach(() => {
 				everyCard.push({
 					animationData: {},
@@ -54,24 +60,40 @@ Page({
 				bannerData,
 				everyCard
 			});
+			const music = this.data.bannerData[0];
+			if (music.cardType == 200) {
+				this.setData({
+					musicTitle: music.backData.title,
+					musicUrl: music.url
+				})
+			}
 		})
 	},
-
+/**
+ * @description 首页幻灯片改变时触发
+ */
 	bannerChange(event) {
 		const current = event.detail.current;
 		this.setData({
 			cardIndex: current
 		})
 		const musicType = this.data.bannerData[current].cardType;
-		console.log(musicType);
 		if (musicType == 200) {
-			this.selectComponent('#music_comp').ifCurrentMusic(musicType);
+			const musicUrl = encodeURI(this.data.bannerData[current].url);
+			const musicTitle = this.data.bannerData[current].backData.title;
+			this.setData({
+				musicTitle,
+				musicUrl,
+			});
+			const playing = mMgr.src == this.data.musicUrl ? true : false;
+			this.setData({
+				['musicData.playing']: playing
+			})
 		}
 	},
 
 	onFlipCard(event) {
 		var currentIndex = event.currentTarget.dataset.mark;
-		// console.log(currentIndex)
 		this.commonFilp(currentIndex);
 	},
 	commonFilp(currentIndex) {
@@ -104,11 +126,29 @@ Page({
 			[ifFrontOrBack]: !self.data.everyCard[currentIndex].ifFrontOrBack
 		})
 	},
+/**
+ * @description 每一张swiper-item滑动结束后触发
+ */	
 	finishAnim(event) {
 		// console.log('动画结束了', event);
-		/**
-		 * 每一张swiper-item滑动结束后触发
-		 */
+
+	},
+	/**
+	 * @description 音乐
+	 */
+	onPlay() {
+		if (!this.data.musicData.playing) {
+			this.setData({
+				['musicData.playing']: true
+			})
+			mMgr.src = this.data.musicUrl;
+			mMgr.title = this.data.musicTitle;
+		} else {
+			this.setData({
+				['musicData.playing']: false
+			})
+			mMgr.pause();
+		}
 	},
 
 	/**
@@ -116,13 +156,12 @@ Page({
 	 */
 	onLike(event) {
 		const behavior = event.detail.behavior; // 告诉到底是取消还是点赞
-		console.log(behavior);
 		const {
 			cardIndex
 		} = this.data;
 		likeModel.like(behavior,
 			this.data.bannerData[cardIndex].id,
-			this.data.bannerData[cardIndex].cardType)
+			this.data.bannerData[cardIndex].cardType);
 	},
 	preventBubble() { return false; } // 用来阻止分享按钮冒泡
 })
