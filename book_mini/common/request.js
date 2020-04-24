@@ -43,7 +43,6 @@ class HTTP {
         
         // const base64 = new Base64()
         const result = Base64.encode(token + ':');
-        console.log(result);
         return 'Basic ' + result;
     }
 }

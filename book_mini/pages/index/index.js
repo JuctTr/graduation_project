@@ -2,8 +2,10 @@
 const app = getApp();
 import { dealIndexData } from '../../utils/tool';
 import { IndexModel } from '../../model/indexModel';
+import { LikeModel } from '../../model/likeModel';
 
 const model = new IndexModel();
+const likeModel = new LikeModel();
 const mMgr = wx.getBackgroundAudioManager()
 
 Page({
@@ -30,7 +32,7 @@ Page({
 			animationData: {},
 			ifFrontOrBack: false
 		}],
-		cardIndex: 0,
+		cardIndex: 0, // 当前卡片的索引
 		ifFilpCard: false,
 		/*--------音乐---------*/ 
 		/*--------音乐end---------*/ 
@@ -56,8 +58,10 @@ Page({
 	},
 
 	bannerChange(event) {
-
 		const current = event.detail.current;
+		this.setData({
+			cardIndex: current
+		})
 		const musicType = this.data.bannerData[current].cardType;
 		console.log(musicType);
 		if (musicType == 200) {
@@ -66,7 +70,7 @@ Page({
 	},
 
 	onFlipCard(event) {
-		var currentIndex = event.currentTarget.dataset.id;
+		var currentIndex = event.currentTarget.dataset.mark;
 		// console.log(currentIndex)
 		this.commonFilp(currentIndex);
 	},
@@ -106,5 +110,20 @@ Page({
 		 * 每一张swiper-item滑动结束后触发
 		 */
 	},
+
+	/**
+	 * @description 接收点赞组件传过来的事件
+	 */
+	onLike(event) {
+		const behavior = event.detail.behavior; // 告诉到底是取消还是点赞
+		console.log(behavior);
+		const {
+			cardIndex
+		} = this.data;
+		likeModel.like(behavior,
+			this.data.bannerData[cardIndex].id,
+			this.data.bannerData[cardIndex].cardType)
+	},
+	preventBubble() { return false; } // 用来阻止分享按钮冒泡
 })
 

@@ -5,6 +5,7 @@ const router = new Router({
 
 const { Permission } = require('../../utils/permission');
 const { Flow } = require('@models/FlowModel');
+const { Favor } = require('@models/favorModel');
 const {
     Movie,
     // Book,
@@ -60,10 +61,10 @@ router.get('/:index/previous', new Permission().isCorrectToken, (ctx, next) => {
 
 });
 
-// router.get('/lastest', new Permission().isCorrectToken, (ctx, next) => {
-//     ctx.body = ctx.auth;
-
-// });
+router.get('/favor', new Permission().isCorrectToken, async ctx => {
+    const uid = ctx.auth.uid;
+    ctx.body = await Favor.getMyClassicFavors(uid);
+})
 
 
 

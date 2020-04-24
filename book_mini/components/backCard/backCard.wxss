@@ -16,11 +16,13 @@
     border-radius: 20rpx;
 }
 .back_book .content {
+    width: 100%;
     padding: 20rpx;
     box-sizing: border-box;
 }
 .back_book .content .desc {
     font-size: 28rpx;
+    text-align: center;
 }
 .back_book .content .icon {
     display: block;
@@ -28,7 +30,22 @@
     height: 30rpx;
     margin: 20rpx;
 }
-.back_book .footer_info {
+.back_book v-date-issue {
+    position: absolute;
+    left: 20rpx;
+    bottom: 20rpx;
+}
+.back_book v-like {
+    position: absolute;
+    right: 20rpx;
+    bottom: 100rpx;
+}
+.back_book v-share {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+}
+/* .back_book .footer_info {
     font-size: 28rpx;
     padding: 20rpx;
     box-sizing: border-box;
@@ -36,4 +53,4 @@
     bottom: 0;
     text-align: center;
     color: #777777;
-}
+} */

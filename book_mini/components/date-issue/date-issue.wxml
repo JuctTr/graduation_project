@@ -1,5 +1,5 @@
 <!--components/dateAndIssue/date-issue.wxml-->
-<view class="container">
+<!-- <view class="container">
     <view class="top_date">
         <text class="year"></text>
         <text class="mouth"></text>
@@ -7,4 +7,15 @@
     <view class="bottom_issue">
         <text class="issue">No.</text>
     </view>
+</view> -->
+<view class="container">
+  <view class="index-container">
+    <text class="plain">No.</text>
+    <text class="index">{{_index}}</text>
+    <view class="line"></view>
+  </view>
+  <view class="date-container">
+    <text class="month">{{month}}</text>
+    <text class="year">{{year}}</text>
+  </view>
 </view>

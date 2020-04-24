@@ -12,6 +12,6 @@
     height: 50rpx;
 }
 .fav_nums {
-    color: #ffffff;
+    /* color: #ffffff; */
     font-size: 24rpx;
 }

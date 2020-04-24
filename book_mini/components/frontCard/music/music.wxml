@@ -1,6 +1,6 @@
 <!--components/frontCard/music/music.wxml-->
 <view class="container">
-    <image class="poster_img" src="{{image}}" />
+    <image class="poster_img {{playing?'rotation':''}}" src="{{image}}" />
     <image class="play_img" catch:tap="onPlay"
     src="{{!playing ? pauseSrc : playSrc }}" />
 </view>

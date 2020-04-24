@@ -1,4 +1,7 @@
 /* components/frontCard/music/music.wxss */
+.container {
+    position: relative;
+}
 .poster_img {
     width: 422rpx;
     height: 422rpx;
@@ -12,4 +15,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.rotation {
+    -webkit-transform: rotate(360deg);
+    animation: rotation 12s linear infinite;
+    -moz-animation: rotation 12s linear infinite;
+    -webkit-animation: rotation 12s linear infinite;
+    -o-animation: rotation 12s linear infinite;
+  }
+  
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+  
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }

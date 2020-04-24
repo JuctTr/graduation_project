@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-    "c-like": "../../components/like/like",
-    "c-share": "../../components/share/share",
-    "c-date-issue": "../../components/date-issue/date-issue",
+    "v-like": "../../components/like/like",
+    "v-share": "../../components/share/share",
+    "v-date-issue": "../../components/date-issue/date-issue",
     "v-music": "../../components/frontCard/music/music"
   }
 }

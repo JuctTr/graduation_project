@@ -1,26 +1,51 @@
-<template name="back_book">
-    <view class="card back_book"
-        catch:tap="onFlipCard"
-        wx:if="{{cardType == 100}}"
-        data-id="{{id}}">
+<!-- 电影 -->
+<template name="back_movie">
+    <view class="card back_book" catch:tap="onFlipCard" wx:if="{{cardType == 100}}" data-mark="{{mark}}">
         <image class="poster" src="{{backData.img}}" />
         <view class="content">
             <image class="icon" src="../../images/icon-flag.png" />
-            <text class="desc">{{backData.content}}</text>
+            <view class="desc">{{backData.content}}</view>
         </view>
-        <view class="footer_info">
+        <text class="title">{{backData.title}}</text>
+        <v-date-issue index="{{index}}"></v-date-issue>
+        <v-like catch:like="onLike" favNums="{{frontData.fav_nums}}" like="{{likeStatus}}"></v-like>
+        <view catch:tap="preventBubble">
+            <v-share></v-share>
+        </view>
+        <!-- <view class="footer_info">
             《疯狂的动物城 / anmial》
+        </view> -->
+    </view>
+</template>
+<!-- 音乐 -->
+<template name="back_music">
+    <view class="card back_book" data-mark="{{mark}}" catch:tap="onFlipCard" wx:if="{{cardType == 200}}">
+        <image class="poster" src="{{backData.img}}" />
+        <view class="content">
+            <image class="icon" src="../../images/icon-flag.png" />
+            <view class="desc">{{backData.content}}</view>
+        </view>
+        <text class="title">{{backData.title}}</text>    
+        <v-date-issue index="{{index}}"></v-date-issue>
+        <v-like catch:like="onLike" favNums="{{frontData.fav_nums}}" like="{{likeStatus}}"></v-like>
+        <view catch:tap="preventBubble">
+            <v-share></v-share>
         </view>
     </view>
 </template>
-<template name="back_music">
-    <view class="card back_book" data-id="{{id}}" catch:tap="onFlipCard" wx:if="{{cardType == 200}}">
+<!-- 书籍 -->
+<template name="back_book">
+    <view class="card back_book" data-mark="{{mark}}" catch:tap="onFlipCard" wx:if="{{cardType == 300}}">
         <image class="poster" src="{{backData.img}}" />
-    </view>
-</template>
-<template name="back_movie">
-    <view class="card back_book" data-id="{{id}}" catch:tap="onFlipCard" wx:if="{{cardType == 300}}">
-        我是电影的前面（背面）
-        <image class="poster" src="{{backData.img}}" />
+        <view class="content">
+            <image class="icon" src="../../images/icon-flag.png" />
+            <view class="desc">{{backData.content}}</view>
+        </view>
+        <text class="title">{{backData.title}}</text>
+        <v-date-issue index="{{index}}"></v-date-issue>
+        <v-like catch:like="onLike" favNums="{{frontData.fav_nums}}" like="{{likeStatus}}"></v-like>
+        <view catch:tap="preventBubble">
+            <v-share></v-share>
+        </view>
     </view>
 </template>

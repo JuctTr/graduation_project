@@ -102,6 +102,60 @@ class CommonModel {
         }
         return result;        
     }
+    /**
+     * @description 后期要修改
+     * @param {*} artInfoList 
+     */
+    static async getList(artInfoList) {
+        const artInfoObj = {
+            100: [],
+            200: [],
+            300: [],
+        }
+        for (let artInfo of artInfoList) {
+            artInfoObj[artInfo.type].push(artInfo.art_id)
+        }
+        const arts = []
+        for (let key in artInfoObj) {
+            const ids = artInfoObj[key]
+            if (ids.length === 0) {
+                continue
+            }
+
+            key = parseInt(key)
+            arts.push(await CommonModel._getListByType(ids, key))
+        }
+
+        return flatten(arts)
+    }
+
+    static async _getListByType(ids, type) {
+        let arts = []
+        const finder = {
+            where: {
+                id: {
+                    [Op.in]: ids
+                }
+            }
+        }
+        const scope = 'removeTime'
+        switch (type) {
+            case 100:
+                arts = await Movie.scope(scope).findAll(finder)
+                break
+            case 200:
+                arts = await Music.scope(scope).findAll(finder)
+                break
+            case 300:
+                arts = await Sentence.scope(scope).findAll(finder)
+            case 400:
+                break
+            default:
+                break
+        }
+        return arts
+    }
+
     
 }
 

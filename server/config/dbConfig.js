@@ -62,7 +62,7 @@ Model.prototype.toJSON = function () {
     unset(data, 'deleted_at');
 
     for (key in data) {
-        if (key === 'image') {
+        if (key === 'image' || key === 'back_image') {
             if (!data[key].startsWith('http'))
                 data[key] = global.config.host + data[key];
         }

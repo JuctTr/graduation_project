@@ -1,17 +1,16 @@
+<!-- 电影 -->
 <template name="front_movie">
     <view class="card front_book"  wx:if="{{cardType == 100}}">
-        <image class="card_bg" catch:tap="onFlipCard" data-id="{{id}}" src="{{frontData.img}}" />
-        <c-like favNums="{{frontData.fav_nums}}"></c-like>
-        <c-share></c-share>
-        <c-date-issue pubdate="{{frontData.pubdate}}"></c-date-issue>
-        <view class="movie_title"></view>
+        <image class="card_bg" catch:tap="onFlipCard" data-mark="{{mark}}" src="{{frontData.img}}" />
+        <!-- <view class="detail">
+
+        </view> -->
+        <view class="detail_btn">点击翻转查看详情</view>
     </view>
 </template>
+<!-- 音乐 -->
 <template name="front_music">
-    <view class="card front_book"
-        catch:tap="onFlipCard"
-        wx:if="{{cardType == 200}}"
-        data-id="{{id}}">
+    <view class="card front_book" catch:tap="onFlipCard"  wx:if="{{cardType == 200}}" data-mark="{{mark}}">
         <view class="music_box">
             <v-music id="music_comp"
                 image="{{frontData.img}}"
@@ -19,15 +18,12 @@
                 musicUrl="{{url}}"
                 ></v-music>
         </view>
-        <text class="music_content">{{backData.content}}</text>
-        <text class="music_title">{{backData.title}}</text>
+        <view class="detail_btn">点击翻转查看详情</view>
     </view>
 </template>
+<!-- 书籍 -->
 <template name="front_book">
-    <view class="card front_book"
-        catch:tap="onFlipCard"
-        wx:if="{{cardType == 300}}"
-        data-id="{{id}}">
+    <view class="card front_book" catch:tap="onFlipCard" wx:if="{{cardType == 300}}" data-mark="{{mark}}">
         <image class="card_bg" src="{{frontData.img}}" />
     </view>
 </template>

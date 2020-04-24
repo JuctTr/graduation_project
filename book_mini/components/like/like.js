@@ -6,6 +6,9 @@ Component({
   properties: {
     favNums: {
       type: Number
+    },
+    like: {
+      type: Boolean,
     }
   },
 
@@ -24,13 +27,23 @@ Component({
     // console.log(this.properties.favNums)
   },
   attached() {
-    console.log(this.properties.favNums)
+
   },
   methods: {
     onLike() {
+      let like = this.properties.like;
+      let favNums = this.properties.favNums;
+
+      favNums = like ? favNums - 1 : favNums + 1;
       this.setData({
-        like: !this.data.like
+        favNums: favNums,
+        like: !like
       })
+      // 激活
+      let behavior = this.properties.like ? 'like' : 'cancel';
+      this.triggerEvent('like',{
+        behavior: behavior
+      },{})
     }
   }
 })

@@ -21,11 +21,11 @@ function dealIndexData (source) {
     }).forEach((item) => {
         const initData = initReturnResult();
         item.index = len--;
-        item.id = tempId++;
+        item.mark = tempId++;
         const {
             id,
             index,
-            like_status,
+            status,
             type,
             image,
             back_image,
@@ -34,6 +34,7 @@ function dealIndexData (source) {
             pubdate,
             fav_nums,
             url,
+            mark
         } = item;
         initData.frontData = {
             img: image,
@@ -46,8 +47,9 @@ function dealIndexData (source) {
             img: back_image,
         }
         initData.id = id;
+        initData.mark = mark;
         initData.index = index;
-        initData.like_status = like_status;
+        initData.like_status = status;
         initData.cardType = type;
         initData.url = url;
         result.push(initData);
