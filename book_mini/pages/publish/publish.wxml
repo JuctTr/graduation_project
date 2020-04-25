@@ -18,7 +18,7 @@
         <view class="category">
             <radio-group class="radio_group" bindchange="radioChange">
                 <radio value="100">电影</radio>
-                <radio value="200">音乐</radio>
+                <!-- <radio value="200">音乐</radio> -->
                 <radio value="300" checked="true">图文</radio>
             </radio-group>
         </view>

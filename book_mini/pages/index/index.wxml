@@ -9,7 +9,6 @@
             <view class="swiper_item">
                 <!-- 卡牌 -->
                 <view class="flip_box" animation="{{everyCard[item.mark].animationData}}">
-                <!-- <view class="flip_box" animation="{{item.ifFilpCard ? animationData : '{}'}}"> -->
                     <view class="front flip_item">
                         <template is="back_book" data="{{...item}}"></template>
                         <template is="back_music" data="{{...item}}"></template>

@@ -8,8 +8,8 @@
     /* background-color: red; */
 }
 .like {
-    width: 60rpx;
-    height: 50rpx;
+    width: 50rpx;
+    height: 40rpx;
 }
 .fav_nums {
     /* color: #ffffff; */

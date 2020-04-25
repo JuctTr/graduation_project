@@ -31,6 +31,12 @@ class BooksModel extends HTTP {
       url: 'book/add/short_comment'
     })
   }
+
+  getMyBookCount() {
+    return this.request({
+      url: 'book/favor/count'
+    })
+  }
 }
 
 export { BooksModel }

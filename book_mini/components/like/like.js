@@ -8,7 +8,10 @@ Component({
       type: Number
     },
     like: {
-      type: Boolean,
+      type: Boolean
+    },
+    readOnly:{
+      type: Boolean
     }
   },
 
@@ -31,6 +34,9 @@ Component({
   },
   methods: {
     onLike() {
+      if(this.properties.readOnly){
+        return
+      }      
       let like = this.properties.like;
       let favNums = this.properties.favNums;
 

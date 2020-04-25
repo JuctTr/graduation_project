@@ -1,6 +1,15 @@
 // pages/my/my.js
-Page({
+import {
+  IndexModel
+} from '../../model/indexModel';
+import {
+  BooksModel
+} from '../../model/booksModel';
 
+const indexModel = new IndexModel();
+const booksModel = new BooksModel();
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -8,28 +17,29 @@ Page({
     userInfo: {
       nickName: '点击授权图像和昵称',
       avatarUrl: '../../images/avatar_default.png',
-    }
+    },
+    authorized: false,
+    bookCount: 0,
+    classics: null
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMyFavor();
+    this.getMyBookCount();
   },
 
   getUserInfo(event) {
@@ -46,6 +56,22 @@ Page({
     })
   },
 
+  getMyFavor() {
+    indexModel.getMyFavor().then(res => {
+      this.setData({
+        classics: res
+      })
+    })
+  },
+
+  getMyBookCount() {
+    booksModel.getMyBookCount()
+      .then(res => {
+        this.setData({
+          bookCount: res.count
+        })
+      })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
