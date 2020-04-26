@@ -8,9 +8,6 @@ const axios = require('axios');
  * @description 通过微信官方提供的登录能力方便地获取微信提供的用户身份标识openid以及unionid
  */
 class WXManager {
-    constructor() {
-
-    }
     /**
      * @param {String} code 小程序中登录接口生成的，需要再小程序中测试
      */

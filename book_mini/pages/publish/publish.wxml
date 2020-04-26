@@ -17,14 +17,14 @@
         </view>
         <view class="category">
             <radio-group class="radio_group" bindchange="radioChange">
-                <radio value="100">电影</radio>
+                <radio value="100" color="#3963bc">电影</radio>
                 <!-- <radio value="200">音乐</radio> -->
-                <radio value="300" checked="true">图文</radio>
+                <radio value="300" color="#3963bc" checked="true">图文</radio>
             </radio-group>
         </view>
-        <view class="submit">
-            <button form-type="reset">重置</button>
-            <button form-type="submit" type="primary">提交</button>
+        <view class="submit_box">
+            <button form-type="reset" class="reset_btn">重置</button>
+            <button form-type="submit" class="submit_btn">提交</button>
         </view>
     </form>
 </view>

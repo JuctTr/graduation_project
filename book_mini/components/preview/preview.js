@@ -11,7 +11,7 @@ Component({
           var typeText = {
             100: "电影",
             200: "音乐",
-            300: "句子"
+            300: "图文"
           }[newVal.type]
         }
         this.setData({

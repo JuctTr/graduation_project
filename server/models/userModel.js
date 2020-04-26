@@ -48,7 +48,8 @@ User.init({
         primaryKey: true,   // 主键，唯一的
         autoIncrement: true // 自动增加
     },
-    nickname: Sequelize.STRING,
+    avatarurl: Sequelize.STRING, // 微信官方头像地址
+    nickname: Sequelize.STRING,  // 微信官方昵称
     password: {
         type: Sequelize.STRING,
         /**
