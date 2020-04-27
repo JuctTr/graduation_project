@@ -12,7 +12,9 @@ const {
     Music,
     Sentence
 } = require('../../models/classicModel');
+const { Community } = require('@models/communityModel');
 const { CommonModel } = require('../../models/commonModel');
+const { PublishValidator } = require('../../validators/validators');
 
 /**
  * @description 获取首页全部数据的接口
@@ -46,6 +48,54 @@ router.get('/latest', new Permission().isCorrectToken, async (ctx, next) => {
     ctx.body = commonData;
 });
 
+
+router.get('/favor', new Permission().isCorrectToken, async ctx => {
+    const uid = ctx.auth.uid;
+    ctx.body = await Favor.getMyClassicFavors(uid);
+})
+
+/**
+ * @description 发布动态接口
+ */
+router.post('/publish', new Permission().isCorrectToken, async(ctx, next) => {
+    const v = await new PublishValidator().validate(ctx);
+    const title = v.get('body.title');
+    const content = v.get('body.content');
+    const author = v.get('body.author');
+    const type = v.get('body.type');
+    const filename = v.get('body.filename').match(/images(\S*)/)[0];
+    const uid = ctx.auth.uid;
+    let newClassic = null;
+    let art = {
+        title,
+        content,
+        image: filename,
+        type,
+        pubdate: Date.now()
+    }
+    // 创建记录
+    if (type == 100) {
+        newClassic = await Movie.create(art)
+    } else {
+        newClassic = await Sentence.create(art)
+    }
+    // 存记录到业务表Community
+    const communityData = {
+        art_id: newClassic.id,
+        type: newClassic.type,
+        uid,
+    }
+    await Community.create(communityData);
+
+
+
+    
+    
+    ctx.body = true;
+
+})
+
+
 /**
  * 请求下一期的数据
  */
@@ -61,15 +111,6 @@ router.get('/:index/previous', new Permission().isCorrectToken, (ctx, next) => {
     ctx.body = ctx.auth;
 
 });
-
-router.get('/favor', new Permission().isCorrectToken, async ctx => {
-    const uid = ctx.auth.uid;
-    ctx.body = await Favor.getMyClassicFavors(uid);
-})
-
-
-
-
 /*
     如何在koa中传递参数？
     第一：就是在路径的中间携带参数，比如: '/v1/{param}/classic/lastest'，'/v1/:id/classic/lastest'

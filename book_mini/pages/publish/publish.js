@@ -1,13 +1,21 @@
 // pages/publish/publish.js
+import { IndexModel } from '../../model/indexModel';
+import { HTTP } from '../../common/request';
+
+const indexModel = new IndexModel();
+const http = new HTTP();
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		filename:'',//网络路径
+		filename: '', // 网络路径
 		localFilename: '',
 		type: 300,
+		title: '',
+		content: '',
+		author: '',
 	},
 
 	/**
@@ -15,6 +23,27 @@ Page({
 	 */
 	onLoad: function (options) {
 
+	},
+
+	/**
+	 * 生命周期函数--监听页面初次渲染完成
+	 */
+	onReady: function () {
+
+	},
+
+	/**
+	 * 生命周期函数--监听页面显示
+	 */
+	onShow: function () {
+		
+	},
+	setValue(event) {
+		const type = event.currentTarget.dataset.type;
+		const value = event.detail.value;
+		this.setData({
+			[type]: value
+		})
 	},
 
 	handleReset() {
@@ -25,7 +54,35 @@ Page({
 	},
 	handleSubmit(event) {
 		console.log(event);
-		this._uploadImg(this.data.localFilename); // 上传到服务器
+		const that = this;
+		// 图片上传到服务器
+		this._uploadImg(that.data.localFilename);
+	},
+	uploadFormData(filename) {
+		const {
+			title,
+			content,
+			author,
+			type,
+		} = this.data;
+		// 把表单数据上传到服务器
+		const formData = {
+			title,
+			content,
+			author,
+			type,
+			filename
+		};
+		indexModel.publishClassic(formData).then((res) => {
+			if (res) {
+				wx.switchTab({
+					url: `/pages/find/find`,
+					success() {
+
+					}
+				})
+			}
+		})
 	},
 	radioChange(event) {
 		console.log(event)
@@ -53,12 +110,12 @@ Page({
 	},
 	// 图片本地路径
 	_chooseWxImage(type) {
-		var that = this;
+		const that = this;
 		wx.chooseImage({
 			sizeType: ['original', 'compressed'],
 			sourceType: [type],
 			success: function (res) {
-				console.log(res.tempFilePaths[0], '上传的图片');	
+				console.log(res.tempFilePaths[0], '上传的图片');
 				that.setData({
 					localFilename: res.tempFilePaths[0]
 				})
@@ -66,37 +123,26 @@ Page({
 		})
 	},
 	//上传服务器
-	_uploadImg: function (imgurl) {
-		var that = this;
+	_uploadImg(imgurl) {
+		const that = this;
 		wx.uploadFile({
 			url: 'http://localhost:3000/v1/publish/uploadFile',
 			filePath: imgurl,
 			name: 'file',
 			header: {
-				'content-type': 'multipart/form-data'
+				'content-type': 'multipart/form-data',
+				Authorization: http._encode()
 			},
 			formData: null,
 			success: function (res) {
 				const result = JSON.parse(res.data);
+				console.log(result);
 				that.setData({
 					filename: result.filename
-				})
+				});
+				that.uploadFormData(result.filename);
 			}
 		})
-	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-
 	},
 
 	/**

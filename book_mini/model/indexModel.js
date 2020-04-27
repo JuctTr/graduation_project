@@ -18,6 +18,13 @@ class IndexModel extends HTTP {
             url: 'classic/favor'
         })
     }
+    publishClassic(formData) {
+        return this.request({
+            url: 'classic/publish',
+            data: formData,
+            method: 'POST'
+        })
+    }
 }
 
 export {

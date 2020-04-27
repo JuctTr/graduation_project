@@ -4,6 +4,10 @@ const Router = require('koa-router');
 const router = new Router({
     prefix: '/v1/publish'
 });
+// const { PublishValidator } = require('../../validators/validators');
+const { Permission } = require('../../utils/permission');
+
+
 
 const multer = require('koa-multer');
 
@@ -20,7 +24,15 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
-router.post('/uploadFile', upload.single('file'), async (ctx, next) => {
+router.post('/uploadFile', new Permission().isCorrectToken, upload.single('file'), async (ctx, next) => {
+
+    const body = ctx.req.body;
+    const {
+        title,
+        content,
+        author,
+    } = body;
+
     ctx.body = {
         filename: global.config.host + 'images/' + ctx.req.file.filename //返回在static/images中的文件名
     }

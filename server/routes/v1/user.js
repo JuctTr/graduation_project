@@ -6,6 +6,7 @@ const Router = require('koa-router');
 const router = new Router({
     prefix: '/v1/user' // 前缀功能，在每一个请求路径前面加
 });
+const { Permission } = require('../../utils/permission');
 
 // const bcrypt = require('bcryptjs'); // 密码加密
 
@@ -35,6 +36,23 @@ router.post('/register', async (ctx) => {
 
     throw new global.errors.Success(); // 请求成功了，抛出自定义的成功异常
    
+})
+
+router.post('/userinfo', new Permission().isCorrectToken, async (ctx, next) => {
+    const userInfo = {
+        nickname: ctx.request.body.nickName,
+        avatarurl: ctx.request.body.avatarUrl
+    }
+    const uid = ctx.auth.uid;
+
+    const user = await User.update(userInfo,{
+        where:{
+            id: uid
+        }
+    });
+    if(user) {
+        throw new global.errors.Success();
+    }
 })
 
 

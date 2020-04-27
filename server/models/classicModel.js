@@ -20,7 +20,10 @@ const commonFields = {
         defaultValue: 0
     },
     pubdate: Sequelize.DATEONLY, // 发表日期
-    status: Sequelize.INTEGER
+    status: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1
+    }
 }
 
 /**

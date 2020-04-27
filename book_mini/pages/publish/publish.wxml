@@ -11,9 +11,9 @@
             </button>
         </view>
         <view class="add_info">
-            <input name="input" class="title" placeholder="标题"></input>
-            <textarea class="content" placeholder="正文"></textarea>
-            <input name="input" class="author" placeholder="作者"></input>
+            <input name="input" class="title" placeholder="标题" value="{{title}}" bindblur="setValue" data-type="title"></input>
+            <textarea class="content" placeholder="正文" value="{{content}}" bindblur="setValue" data-type="content"></textarea>
+            <input name="input" class="author" placeholder="作者" value="{{author}}" bindblur="setValue" data-type="author"></input>
         </view>
         <view class="category">
             <radio-group class="radio_group" bindchange="radioChange">

@@ -5,10 +5,9 @@ import {
 
   class FindModel extends HTTP {
       getFindData () {
-          const result = this.request({
-            url: 'find'
+          return this.request({
+            url: 'community'
           })
-          return result;
       }
       getAddData () {
         return this.request({

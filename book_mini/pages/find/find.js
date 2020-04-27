@@ -20,7 +20,9 @@ Page({
 			title: '',
 			content: '',
 			pubdate: '',
-			fav_nums: 0,
+      fav_nums: 0,
+      nickName: '',
+      avatarUrl: '',
 		}]    
   },
 
@@ -28,6 +30,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
 		findModel.getFindData().then((res) => {
 			console.log(res);
 			this.setData({
@@ -41,20 +57,6 @@ Page({
 		console.log(behavior);
 		
 	},
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

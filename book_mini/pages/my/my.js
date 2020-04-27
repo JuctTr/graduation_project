@@ -5,9 +5,13 @@ import {
 import {
   BooksModel
 } from '../../model/booksModel';
+import {
+  UserModel
+}  from '../../model/userModel';
 
 const indexModel = new IndexModel();
 const booksModel = new BooksModel();
+const userModel = new UserModel();
 
 Page({
   /**
@@ -53,6 +57,9 @@ Page({
         nickName,
         avatarUrl,
       }
+    });
+    userModel.uploadUserInfo(this.data.userInfo).then((res) => {
+      console.log('上传用户信息成功')
     })
   },
 

@@ -176,6 +176,25 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
         ]
     }
 }
+/**
+ * @description 发表动态页面
+ */
+class PublishValidator extends LinValidator {
+    constructor() {
+        super()
+        this.title = [
+            new Rule('isLength', '不允许为空', {
+                min: 1
+            })
+        ]
+        this.content = [
+            new Rule('isLength', '必须在1到30个字符之间', {
+                min: 1,
+                max: 30
+            })
+        ]
+    }
+}
 
 module.exports = {
     PositiveIntegerValidator,
@@ -184,5 +203,6 @@ module.exports = {
     NotEmptyValidator,
     LikeValidator,
     SearchValidator,
-    AddShortCommentValidator
+    AddShortCommentValidator,
+    PublishValidator
 }

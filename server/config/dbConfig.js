@@ -63,7 +63,7 @@ Model.prototype.toJSON = function () {
 
     for (key in data) {
         if (key === 'image' || key === 'back_image') {
-            if (!data[key].startsWith('http'))
+            if (data[key] != null && !data[key].startsWith('http'))
                 data[key] = global.config.host + data[key];
         }
     }

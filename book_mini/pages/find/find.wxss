@@ -1,11 +1,11 @@
 /* pages/find/find.wxss */
 .container {
     background-color: #edeef0;
-    min-height: 100vh;
-    padding: 40rpx 60rpx 0 60rpx;
+    padding: 40rpx 60rpx 60rpx 60rpx;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 .userinfo {
     height: 100rpx;
@@ -15,6 +15,7 @@
 .userinfo .avatar {
     width: 100rpx;
     height: 100rpx;
+    border-radius: 50%;
 }
 .userinfo .nick_date {
     display: flex;
@@ -39,12 +40,12 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin-bottom: 40rpx;
+    margin: 40rpx 0 60rpx 0;
     border-radius: 20rpx;
 }
 .card .poster {
     width: 100%;
-    height: 350rpx;
+    height: 400rpx;
 }
 .card .footer {
     display: flex;
