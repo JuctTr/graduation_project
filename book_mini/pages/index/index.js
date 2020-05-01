@@ -26,7 +26,7 @@ Page({
 				"title": "疯狂的动物城",
 				"img": "http://192.168.0.13:3000/images/back_animal.jpg"
 			},
-			"url": ""       
+			"url": "",
 		}],
 		everyCard: [{
 			animationData: {},

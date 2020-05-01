@@ -2,8 +2,8 @@
 <view catch:tap="onTap" class="container">
   <view class="head">
     <v-tag commentText="{{typeText}}" tag-class="tag" />
-    <v-like class="like" read-only="{{true}}" like="{{true}}" favNums="{{classic.fav_nums}}" />
+    <v-like class="like" read-only="{{true}}" like="{{true}}" isMyPage="{{true}}" favNums="{{classic.fav_nums}}" />
   </view>
   <image class="{{classic.type==200?'music-img':'other-img'}}" src="{{classic.image}}"></image>
-  <view class="text">{{classic.content}}</view>
+  <rich-text class="text" nodes="{{classic.content}}"></rich-text>
 </view>

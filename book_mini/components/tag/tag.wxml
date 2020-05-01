@@ -1,5 +1,5 @@
 <!--components/tag/tag.wxml-->
-<view class="container tag-class ">
+<view class="container tag-class">
     <slot name="before"></slot>
     <text>{{commentText}}</text>
     <slot name="after"></slot>

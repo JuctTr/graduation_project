@@ -1,5 +1,5 @@
 <!--components/like/like.wxml-->
-<view class="container">
+<view class="container {{isMyPage ? 'is_my_page' : ''}}">
     <image class="like" catch:tap="onLike" src="{{like ? '../../images/like@highlight.png' : '../../images/like.png'}}" />
-    <text class="fav_nums">{{favNums}}</text>
+    <text class="fav_nums {{isMyPage ? 'my_page_num' : ''}}">{{favNums}}</text>
 </view>

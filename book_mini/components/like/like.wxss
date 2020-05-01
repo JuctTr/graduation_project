@@ -15,3 +15,14 @@
     /* color: #ffffff; */
     font-size: 24rpx;
 }
+.is_my_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100rpx;
+    height: 80rpx;
+}
+.my_page_num {
+    font-size: 20rpx;
+    margin: 0 0 35rpx 10rpx;
+}

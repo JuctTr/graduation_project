@@ -12,6 +12,10 @@ Component({
     },
     readOnly:{
       type: Boolean
+    },
+    isMyPage: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -19,8 +23,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    likeImage: 'http://localhost:3000/images/my.png',
-    like: false,
+
   },
 
   /**

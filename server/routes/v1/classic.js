@@ -2,10 +2,12 @@ const Router = require('koa-router');
 const router = new Router({
     prefix: '/v1/classic'
 });
+const {
+    Op
+} = require('sequelize');
 
 const { Permission } = require('../../utils/permission');
 const { Flow } = require('@models/FlowModel');
-const { Favor } = require('@models/favorModel');
 const {
     Movie,
     // Book,
@@ -14,6 +16,7 @@ const {
 } = require('../../models/classicModel');
 const { Community } = require('@models/communityModel');
 const { CommonModel } = require('../../models/commonModel');
+const { Favor } = require('@models/favorModel');
 const { PublishValidator } = require('../../validators/validators');
 
 /**
@@ -28,6 +31,23 @@ router.get('/all', new Permission().isCorrectToken, async (ctx, next) => {
         order: ['index']
     });
     const allIndexData = await CommonModel.getAllIndexData(allClassicIds);
+    const favorArray = await Favor.findAll({
+        attributes: ['art_id','type']
+    }, {
+        where: {
+            uid: ctx.auth.uid
+        }
+    })
+    for(let item of allIndexData) {
+        for(let subitem of favorArray) {
+            if (item.id == subitem.art_id && item.type == subitem.type) {
+                item.setDataValue('like_status', true);
+                break;
+            } else {
+                item.setDataValue('like_status', false);
+            }
+        }
+    }
     
     ctx.body = allIndexData;
 })

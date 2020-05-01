@@ -25,7 +25,7 @@ function dealIndexData (source) {
         const {
             id,
             index,
-            status,
+            like_status,
             type,
             image,
             back_image,
@@ -49,7 +49,7 @@ function dealIndexData (source) {
         initData.id = id;
         initData.mark = mark;
         initData.index = index;
-        initData.like_status = status;
+        initData.likeStatus = like_status;
         initData.cardType = type;
         initData.url = url;
         result.push(initData);

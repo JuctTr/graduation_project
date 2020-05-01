@@ -13,8 +13,6 @@ router.get('/', new Permission().isCorrectToken, async (ctx, next) => {
     });
     const communityData = await Community.getAllIndexData(artIdArray);
 
-    console.log(communityData);
-    // throw new global.errors.Success();
     ctx.body = communityData;
 })
 
