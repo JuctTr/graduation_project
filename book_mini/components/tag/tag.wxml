@@ -1,6 +1,6 @@
 <!--components/tag/tag.wxml-->
-<view class="container tag-class">
+<view bind:tap="onTap" class="container tag-class">
     <slot name="before"></slot>
-    <text>{{commentText}}</text>
+    <text >{{commentText}}</text>
     <slot name="after"></slot>
 </view>

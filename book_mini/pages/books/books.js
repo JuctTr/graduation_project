@@ -1,5 +1,6 @@
 // pages/books/books.js
 import { BooksModel } from '../../model/booksModel';
+import { random } from '../../utils/util';
 
 const booksModel = new BooksModel();
 
@@ -9,7 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching: false,
+    loadMore: ''
   },
 
   /**
@@ -38,6 +41,16 @@ Page({
 
   },
 
+  onSearching() {
+    this.setData({
+      searching: true
+    })
+  },
+  onCancel(event){
+    this.setData({
+      searching:false
+    }) 
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -63,7 +76,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      loadMore: random(16)
+    })
   },
 
   /**
