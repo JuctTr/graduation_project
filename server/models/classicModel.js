@@ -19,7 +19,7 @@ const commonFields = {
         type: Sequelize.INTEGER, // 点赞人数
         defaultValue: 0
     },
-    pubdate: Sequelize.DATEONLY, // 发表日期
+    pubdate: Sequelize.DATE, // 发表日期
 }
 
 /**

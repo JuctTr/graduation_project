@@ -62,7 +62,7 @@
 					"id": 0,
 					"name": "pages/books/books",
 					"pathName": "pages/books/books",
-					"query": "bookId=6890",
+					"query": "",
 					"scene": null
 				},
 				{

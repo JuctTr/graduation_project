@@ -15,7 +15,7 @@
                 <text>历史搜索</text>
             </view>
             <view class="tags">
-                <block wx:key="" wx:for="{{historyWords}}">
+                <block wx:key="index" wx:for="{{historyWords}}">
                     <v-tag bind:tapping="onConfirm" commentText="{{item}}" />
                 </block>
             </view>
@@ -26,7 +26,7 @@
                 <text>热门搜索</text>
             </view>
             <view class="tags">
-                <block wx:key="" wx:for="{{hotWords}}">
+                <block wx:key="index" wx:for="{{hotWords}}">
                     <v-tag bind:tapping="onConfirm" commentText="{{item}}" />
                 </block>
             </view>
