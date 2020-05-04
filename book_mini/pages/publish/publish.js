@@ -148,6 +148,16 @@ Page({
 					filename: result.filename
 				});
 				that.uploadFormData(result.filename);
+			},
+			fail: function (error) {
+				const errMsg = error.errMsg;
+				if (errMsg == 'uploadFile:fail createUploadTask:fail file not found') {
+					wx.showToast({
+						title: '上传图片失败了，请检查是否有上传~',
+						icon: 'none',
+						duration: 3000
+					})
+				}
 			}
 		})
 	},

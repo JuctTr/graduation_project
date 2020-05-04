@@ -192,7 +192,12 @@ class PublishValidator extends LinValidator {
                 min: 1,
                 max: 30
             })
-        ]
+        ],
+        this.filename = [
+            new Rule('isLength', '不允许为空', {
+                min: 1
+            })
+        ]        
     }
 }
 
