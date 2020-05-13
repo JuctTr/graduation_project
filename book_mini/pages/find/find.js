@@ -27,7 +27,8 @@ Page({
 			fav_nums: 0,
 			nickName: '',
 			avatarUrl: '',
-		}]
+		}],
+		topNum: 0
 	},
 
 	/**
@@ -48,7 +49,6 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		console.log('页面显示了')
 		findModel.getFindData().then((res) => {
 			// 1、按照日期的先后顺序排序
 			const result = sortFromDate(res, 'pubdate');
@@ -58,7 +58,8 @@ Page({
 				item.pubdate = dealDateData(pubdate);
 			})
 			this.setData({
-				finderData: result
+				finderData: result,
+				topNum: 0
 			});
 		});
 	},
@@ -85,6 +86,7 @@ Page({
 	onPageScroll: function(event) {
 		// 页面滚动时执行
 		console.log(event)
+		console.log('滚动了')
 	},
 	/**
 	 * 页面相关事件处理函数--监听用户下拉动作

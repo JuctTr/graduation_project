@@ -23,7 +23,6 @@ Page({
       this.setData({
         books: res
       });
-      console.log(res)
     }) 
   },
 
@@ -48,7 +47,7 @@ Page({
   },
   onCancel(event){
     this.setData({
-      searching:false
+      searching: false
     }) 
   },
   /**

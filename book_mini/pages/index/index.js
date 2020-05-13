@@ -107,15 +107,9 @@ Page({
 		var flipBool = this.data.everyCard[currentIndex].ifFrontOrBack;
 
 		if (!flipBool) {
-			animation.rotateY(220).step().rotateY(170).step()
-				.rotateY(185).step({ duration: 100 })
-				.rotateY(175).step({ duration: 100 })
-				.rotateY(180).step({ duration: 100 });
+			animation.rotateY(220).step().rotateY(170).step().rotateY(185).step({ duration: 100 }).rotateY(175).step({ duration: 100 }).rotateY(180).step({ duration: 100 });
 		} else {
-			animation.rotateY(-40).step().rotateY(10).step()
-				.rotateY(-5).step({ duration: 100 })
-				.rotateY(5).step({ duration: 100 })
-				.rotateY(0).step({ duration: 100 });
+			animation.rotateY(-40).step().rotateY(10).step().rotateY(-5).step({ duration: 100 }).rotateY(5).step({ duration: 100 }).rotateY(0).step({ duration: 100 });
 		}
 
 		var animationData = `everyCard[${currentIndex}].animationData`;
@@ -150,7 +144,7 @@ Page({
 			mMgr.pause();
 		}
 	},
-
+	
 	/**
 	 * @description 接收点赞组件传过来的事件
 	 */

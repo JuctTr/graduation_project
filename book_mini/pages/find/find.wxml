@@ -1,5 +1,5 @@
 <!--pages/find/find.wxml-->
-<scroll-view scroll-y="true" class="container">
+<scroll-view scroll-y="true" scroll-top="{{topNum}}" class="container">
 <block wx:for="{{finderData}}">
     <view class="userinfo">
         <image class="avatar" src="{{item.avatarUrl}}"></image>
@@ -15,7 +15,7 @@
         <view class="footer">
             <view class="comment">
                 <image class="icon comment_bg" src="../../images/find/comment.png"></image>
-                <text class="num">20</text>
+                <text class="num">0</text>
             </view>
             <view class="favor">
                 <image class="icon favor_bg" src="../../images/find/like.png"></image>

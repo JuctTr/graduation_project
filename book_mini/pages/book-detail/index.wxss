@@ -49,6 +49,11 @@
   font-weight: bolder;
   padding: 20rpx 0;
 }
+
+.shadow {
+    color: #999;
+}
+
 .comments {
   display: inline-flex;
   flex-direction: row;

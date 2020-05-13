@@ -20,15 +20,15 @@
 .swiper_item {
 	padding: 32rpx 0;
 	position: relative;
-	-webkit-perspective: 500px;
-	perspective: 500px;
+	/* 距离观测者的距离，使翻转效果有立体感 */
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
 }
 
 .flip_box {
 	width: 610rpx;
 	height: 1034rpx;
 	margin: 0 auto;
-	background-color: #ffffff;
 	border-radius: 20rpx;
 	box-shadow: 0px 0 8px -5px #000000;
 	-webkit-transform-style: preserve-3d;
